@@ -1,0 +1,11 @@
+﻿Version 0.3 rev 3
+- Added automatic name (from file name) on create actor form
+- Added predefined business role for actor form
+- Added change log on splash screen
+- Added a cancel button on edit take form and on edit scene form
+- Added a self screen alignment on director forms during playing
+- Added a copy feature in order to copy actors from another demo movie
+- Bug fixed: Quick form director not docked
+
+Version 0.3
+First alpha release
