@@ -24,11 +24,12 @@ Partial Class MainForm
     Private Sub InitializeComponent()
         Me.ClientPanel = New System.Windows.Forms.Panel()
         Me.TopPanel = New System.Windows.Forms.Panel()
+        Me.AuthorLabel = New System.Windows.Forms.Label()
+        Me.VersionLabel = New System.Windows.Forms.Label()
         Me.SubTitleLabel = New System.Windows.Forms.Label()
         Me.LinePictureBox = New System.Windows.Forms.PictureBox()
         Me.ClosePictureBox = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.VersionLabel = New System.Windows.Forms.Label()
         Me.TopPanel.SuspendLayout()
         CType(Me.LinePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClosePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,6 +49,7 @@ Partial Class MainForm
         '
         Me.TopPanel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.TopPanel.BackgroundImage = Global.it.mymax.demomovie2.My.Resources.Resources.backgroundDM
+        Me.TopPanel.Controls.Add(Me.AuthorLabel)
         Me.TopPanel.Controls.Add(Me.VersionLabel)
         Me.TopPanel.Controls.Add(Me.SubTitleLabel)
         Me.TopPanel.Controls.Add(Me.LinePictureBox)
@@ -58,6 +60,31 @@ Partial Class MainForm
         Me.TopPanel.Name = "TopPanel"
         Me.TopPanel.Size = New System.Drawing.Size(818, 83)
         Me.TopPanel.TabIndex = 4
+        '
+        'AuthorLabel
+        '
+        Me.AuthorLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AuthorLabel.AutoSize = True
+        Me.AuthorLabel.BackColor = System.Drawing.Color.Transparent
+        Me.AuthorLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AuthorLabel.ForeColor = System.Drawing.Color.Black
+        Me.AuthorLabel.Location = New System.Drawing.Point(741, 60)
+        Me.AuthorLabel.Name = "AuthorLabel"
+        Me.AuthorLabel.Size = New System.Drawing.Size(49, 17)
+        Me.AuthorLabel.TabIndex = 10
+        Me.AuthorLabel.Text = "Version"
+        '
+        'VersionLabel
+        '
+        Me.VersionLabel.AutoSize = True
+        Me.VersionLabel.BackColor = System.Drawing.Color.Transparent
+        Me.VersionLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VersionLabel.ForeColor = System.Drawing.Color.Black
+        Me.VersionLabel.Location = New System.Drawing.Point(14, 59)
+        Me.VersionLabel.Name = "VersionLabel"
+        Me.VersionLabel.Size = New System.Drawing.Size(49, 17)
+        Me.VersionLabel.TabIndex = 9
+        Me.VersionLabel.Text = "Version"
         '
         'SubTitleLabel
         '
@@ -106,18 +133,6 @@ Partial Class MainForm
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Demo Movie"
         '
-        'VersionLabel
-        '
-        Me.VersionLabel.AutoSize = True
-        Me.VersionLabel.BackColor = System.Drawing.Color.Transparent
-        Me.VersionLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VersionLabel.ForeColor = System.Drawing.Color.Black
-        Me.VersionLabel.Location = New System.Drawing.Point(14, 59)
-        Me.VersionLabel.Name = "VersionLabel"
-        Me.VersionLabel.Size = New System.Drawing.Size(49, 17)
-        Me.VersionLabel.TabIndex = 9
-        Me.VersionLabel.Text = "Version"
-        '
         'MainForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -129,6 +144,7 @@ Partial Class MainForm
         Me.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TopPanel.ResumeLayout(False)
         Me.TopPanel.PerformLayout()
         CType(Me.LinePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -143,4 +159,5 @@ Partial Class MainForm
     Friend WithEvents LinePictureBox As PictureBox
     Friend WithEvents SubTitleLabel As Label
     Friend WithEvents VersionLabel As Label
+    Friend WithEvents AuthorLabel As Label
 End Class

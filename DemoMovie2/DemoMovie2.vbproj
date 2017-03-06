@@ -26,8 +26,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>DemoMovie2</ProductName>
     <PublisherName>MyMax</PublisherName>
-    <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>0.3.0.3</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.4.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -106,6 +106,9 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="edtFTPnet">
+      <HintPath>..\..\FTPServer\FTPServer\edtFTPnet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -137,6 +140,7 @@
     <Compile Include="MVC\Control\ISwipeForm.vb" />
     <Compile Include="MVC\Control\Main.vb" />
     <Compile Include="MVC\Control\PanelController.vb" />
+    <Compile Include="MVC\Control\PublicServer.vb" />
     <Compile Include="MVC\Model\Actor.vb" />
     <Compile Include="MVC\View\Controls\LIstOf\ListOfActors.Designer.vb">
       <DependentUpon>ListOfActors.vb</DependentUpon>
@@ -170,6 +174,12 @@
     </Compile>
     <Compile Include="MVC\View\Controls\Basic\CircledPicture.vb">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MVC\View\Controls\Model controls\CloudUserControl.Designer.vb">
+      <DependentUpon>CloudUserControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MVC\View\Controls\Model controls\CloudUserControl.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="MVC\View\Controls\Model controls\MovieUserControl.Designer.vb">
       <DependentUpon>MovieUserControl.vb</DependentUpon>
@@ -361,6 +371,9 @@
     <EmbeddedResource Include="MVC\View\Controls\Model controls\AddUserControl.resx">
       <DependentUpon>AddUserControl.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MVC\View\Controls\Model controls\CloudUserControl.resx">
+      <DependentUpon>CloudUserControl.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MVC\View\Controls\Model controls\MovieUserControl.resx">
       <DependentUpon>MovieUserControl.vb</DependentUpon>
     </EmbeddedResource>
@@ -477,6 +490,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Martynamru-Leather-Movie.ico" />
+    <None Include="Resources\download-48.png" />
+    <None Include="Resources\clouds-48.png" />
     <None Include="ChangeLog.txt" />
     <None Include="Resources\hustler.jpg" />
     <None Include="Resources\SAP Ariba Logo.png" />

@@ -30,6 +30,7 @@
         AddHandler PanelController.This.TitleChanged, AddressOf PanelChanged
 
         VersionLabel.Text = Application.ProductVersion
+        AuthorLabel.Text = GlobalSettings.This.Author
 
         'Size to the middle of the screen
         Width = CInt(Screen.PrimaryScreen.WorkingArea.Width / 2)
@@ -51,6 +52,14 @@
             SubTitleLabel.Text = ""
         End If
 
+    End Sub
+
+    Private Sub TopPanel_Paint(sender As Object, e As PaintEventArgs) Handles TopPanel.Paint
+
+    End Sub
+
+    Private Sub TopPanel_MouseDoubleClick(sender As Object, e As MouseEventArgs) Handles TopPanel.MouseDoubleClick
+        If WindowState = FormWindowState.Maximized Then WindowState = FormWindowState.Normal Else WindowState = FormWindowState.Maximized
     End Sub
 
 #End Region
