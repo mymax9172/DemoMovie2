@@ -34,22 +34,23 @@ Partial Class GeneralTabPanel
         Me.DemoDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.QuickPanel = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.SimplePanel = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
         Me.FullPanel = New System.Windows.Forms.Panel()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.PublishedLabel = New System.Windows.Forms.Label()
         CType(Me.FullPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SimplePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QuickPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +66,7 @@ Partial Class GeneralTabPanel
         Me.CustomerTextBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomerTextBox.Location = New System.Drawing.Point(31, 68)
         Me.CustomerTextBox.Name = "CustomerTextBox"
-        Me.CustomerTextBox.Size = New System.Drawing.Size(385, 27)
+        Me.CustomerTextBox.Size = New System.Drawing.Size(385, 32)
         Me.CustomerTextBox.TabIndex = 21
         Me.CustomerTextBox.WaterMarkColor = System.Drawing.Color.Gray
         Me.CustomerTextBox.WaterMarkText = "Customer name"
@@ -77,7 +78,7 @@ Partial Class GeneralTabPanel
         Me.TitleTextBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleTextBox.Location = New System.Drawing.Point(31, 35)
         Me.TitleTextBox.Name = "TitleTextBox"
-        Me.TitleTextBox.Size = New System.Drawing.Size(385, 27)
+        Me.TitleTextBox.Size = New System.Drawing.Size(385, 32)
         Me.TitleTextBox.TabIndex = 20
         Me.TitleTextBox.WaterMarkColor = System.Drawing.Color.Gray
         Me.TitleTextBox.WaterMarkText = "Title of the demo movie"
@@ -118,7 +119,7 @@ Partial Class GeneralTabPanel
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(28, 169)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 17)
+        Me.Label1.Size = New System.Drawing.Size(94, 23)
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "Demo type"
         '
@@ -128,7 +129,7 @@ Partial Class GeneralTabPanel
         Me.FullLabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FullLabel.Location = New System.Drawing.Point(217, 172)
         Me.FullLabel.Name = "FullLabel"
-        Me.FullLabel.Size = New System.Drawing.Size(81, 20)
+        Me.FullLabel.Size = New System.Drawing.Size(103, 25)
         Me.FullLabel.TabIndex = 28
         Me.FullLabel.Text = "Full movie"
         '
@@ -138,7 +139,7 @@ Partial Class GeneralTabPanel
         Me.SimpleLabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SimpleLabel.Location = New System.Drawing.Point(217, 172)
         Me.SimpleLabel.Name = "SimpleLabel"
-        Me.SimpleLabel.Size = New System.Drawing.Size(103, 20)
+        Me.SimpleLabel.Size = New System.Drawing.Size(131, 25)
         Me.SimpleLabel.TabIndex = 27
         Me.SimpleLabel.Text = "Simple movie"
         '
@@ -148,7 +149,7 @@ Partial Class GeneralTabPanel
         Me.QuickLabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.QuickLabel.Location = New System.Drawing.Point(217, 172)
         Me.QuickLabel.Name = "QuickLabel"
-        Me.QuickLabel.Size = New System.Drawing.Size(95, 20)
+        Me.QuickLabel.Size = New System.Drawing.Size(122, 25)
         Me.QuickLabel.TabIndex = 26
         Me.QuickLabel.Text = "Quick movie"
         '
@@ -159,7 +160,7 @@ Partial Class GeneralTabPanel
         Me.DemoDateTimePicker.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DemoDateTimePicker.Location = New System.Drawing.Point(158, 114)
         Me.DemoDateTimePicker.Name = "DemoDateTimePicker"
-        Me.DemoDateTimePicker.Size = New System.Drawing.Size(258, 25)
+        Me.DemoDateTimePicker.Size = New System.Drawing.Size(258, 29)
         Me.DemoDateTimePicker.TabIndex = 29
         '
         'Label2
@@ -168,7 +169,7 @@ Partial Class GeneralTabPanel
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(28, 120)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(84, 17)
+        Me.Label2.Size = New System.Drawing.Size(111, 23)
         Me.Label2.TabIndex = 30
         Me.Label2.Text = "Planned date"
         '
@@ -185,32 +186,32 @@ Partial Class GeneralTabPanel
         Me.QuickPanel.TabIndex = 31
         Me.QuickPanel.Visible = False
         '
-        'Label3
+        'Label5
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(19, 18)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(118, 17)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Follow these steps:"
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(46, 79)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(195, 23)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "2) Play your quick movie"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(46, 52)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(281, 17)
+        Me.Label4.Size = New System.Drawing.Size(362, 23)
         Me.Label4.TabIndex = 1
         Me.Label4.Text = "1) Create your cast, selecting players and roles"
         '
-        'Label5
+        'Label3
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(46, 79)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(149, 17)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "2) Play your quick movie"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(19, 18)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(152, 23)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "Follow these steps:"
         '
         'SimplePanel
         '
@@ -227,6 +228,24 @@ Partial Class GeneralTabPanel
         Me.SimplePanel.TabIndex = 32
         Me.SimplePanel.Visible = False
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(46, 145)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(219, 23)
+        Me.Label10.TabIndex = 4
+        Me.Label10.Text = "4) Player your simple movie"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(46, 118)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(299, 23)
+        Me.Label9.TabIndex = 3
+        Me.Label9.Text = "3) Repeat step 2 as much as you need"
+        '
         'Label6
         '
         Me.Label6.Location = New System.Drawing.Point(46, 79)
@@ -241,7 +260,7 @@ Partial Class GeneralTabPanel
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(46, 52)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(281, 17)
+        Me.Label7.Size = New System.Drawing.Size(362, 23)
         Me.Label7.TabIndex = 1
         Me.Label7.Text = "1) Create your cast, selecting players and roles"
         '
@@ -250,27 +269,9 @@ Partial Class GeneralTabPanel
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(19, 18)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(118, 17)
+        Me.Label8.Size = New System.Drawing.Size(152, 23)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Follow these steps:"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(46, 118)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(231, 17)
-        Me.Label9.TabIndex = 3
-        Me.Label9.Text = "3) Repeat step 2 as much as you need"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(46, 145)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(169, 17)
-        Me.Label10.TabIndex = 4
-        Me.Label10.Text = "4) Player your simple movie"
         '
         'FullPanel
         '
@@ -288,12 +289,21 @@ Partial Class GeneralTabPanel
         Me.FullPanel.TabIndex = 33
         Me.FullPanel.Visible = False
         '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(46, 101)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(490, 23)
+        Me.Label16.TabIndex = 5
+        Me.Label16.Text = "3) Add takes, with a title and a selction of actors from your cast"
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(46, 153)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(148, 17)
+        Me.Label11.Size = New System.Drawing.Size(193, 23)
         Me.Label11.TabIndex = 4
         Me.Label11.Text = "5) Player your full movie"
         '
@@ -302,7 +312,7 @@ Partial Class GeneralTabPanel
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(46, 127)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(274, 17)
+        Me.Label12.Size = New System.Drawing.Size(354, 23)
         Me.Label12.TabIndex = 3
         Me.Label12.Text = "4) Repeat steps 2 and 3 as much as you need"
         '
@@ -311,7 +321,7 @@ Partial Class GeneralTabPanel
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(46, 79)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(153, 17)
+        Me.Label13.Size = New System.Drawing.Size(199, 23)
         Me.Label13.TabIndex = 2
         Me.Label13.Text = "2) Create athe first scene"
         '
@@ -320,7 +330,7 @@ Partial Class GeneralTabPanel
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(46, 52)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(281, 17)
+        Me.Label14.Size = New System.Drawing.Size(362, 23)
         Me.Label14.TabIndex = 1
         Me.Label14.Text = "1) Create your cast, selecting players and roles"
         '
@@ -329,22 +339,24 @@ Partial Class GeneralTabPanel
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(19, 18)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(118, 17)
+        Me.Label15.Size = New System.Drawing.Size(152, 23)
         Me.Label15.TabIndex = 0
         Me.Label15.Text = "Follow these steps:"
         '
-        'Label16
+        'PublishedLabel
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(46, 101)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(377, 17)
-        Me.Label16.TabIndex = 5
-        Me.Label16.Text = "3) Add takes, with a title and a selction of actors from your cast"
+        Me.PublishedLabel.AutoSize = True
+        Me.PublishedLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PublishedLabel.Location = New System.Drawing.Point(28, 267)
+        Me.PublishedLabel.Name = "PublishedLabel"
+        Me.PublishedLabel.Size = New System.Drawing.Size(347, 23)
+        Me.PublishedLabel.TabIndex = 34
+        Me.PublishedLabel.Text = "This demo has been published on the Cloud"
         '
         'GeneralTabPanel
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.Controls.Add(Me.PublishedLabel)
         Me.Controls.Add(Me.FullPanel)
         Me.Controls.Add(Me.SimplePanel)
         Me.Controls.Add(Me.QuickPanel)
@@ -403,4 +415,5 @@ Partial Class GeneralTabPanel
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents Label15 As Label
+    Friend WithEvents PublishedLabel As Label
 End Class

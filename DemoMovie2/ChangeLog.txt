@@ -1,4 +1,11 @@
-﻿Version 0.3 rev 3
+﻿Version 0.4
+- Added support for shared demo movie
+- Changed customer name on demo, always visibile (non only on selected movie)
+- Changed starting size to full screen. Dbl click on top bar to revert on normal behaviour (movable and sizeble form) 
+- Changed type of demo movie on creation. Always visibile types, not anymore depending on trackbar
+- Bug fixed: Movie can now be played by clicking on customer or date label, not only on title label
+
+Version 0.3 rev 3
 - Added automatic name (from file name) on create actor form
 - Added predefined business role for actor form
 - Added change log on splash screen

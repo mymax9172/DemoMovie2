@@ -18,6 +18,8 @@
         QuickPictureBox.Visible = CBool(CurrentItem.Type = DemoMovie.DEMOTYPE.Quick)
         QuickLabel.Visible = CBool(CurrentItem.Type = DemoMovie.DEMOTYPE.Quick)
 
+        PublishedLabel.Visible = CurrentItem.IsPublished
+
         Select Case CurrentItem.Type
             Case DemoMovie.DEMOTYPE.Quick : QuickPanel.Visible = True
             Case DemoMovie.DEMOTYPE.Simple : SimplePanel.Visible = True
@@ -44,4 +46,6 @@
         CurrentItem.DemoDate = DemoDateTimePicker.Value
 
     End Sub
+
+
 End Class

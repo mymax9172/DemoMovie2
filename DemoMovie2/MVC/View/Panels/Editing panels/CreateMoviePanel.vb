@@ -2,34 +2,6 @@
 
     Public Event MovieCreated As EventHandler
 
-    Protected Friend Overrides Sub OnShowed(e As EventArgs)
-        MyBase.OnShowed(e)
-
-        UpdateIcons()
-
-    End Sub
-
-    Private Sub TypeTrackBar_ValueChanged(sender As Object, e As EventArgs) Handles TypeTrackBar.ValueChanged
-
-        UpdateIcons()
-
-    End Sub
-
-    Private Sub UpdateIcons()
-
-        Dim n As Integer = TypeTrackBar.Value
-        QuickPictureBox.Visible = CBool(n = 1)
-        QuickLabel.Visible = CBool(n = 1)
-        QuickLabel2.Visible = CBool(n = 1)
-        SimplePictureBox.Visible = CBool(n = 2)
-        SimpleLabel.Visible = CBool(n = 2)
-        SimpleLabel2.Visible = CBool(n = 2)
-        FullPictureBox.Visible = CBool(n = 3)
-        FullLabel.Visible = CBool(n = 3)
-        FullLabel2.Visible = CBool(n = 3)
-
-    End Sub
-
     Private Sub CreateButton_Click(sender As Object, e As EventArgs) Handles CreateButton.Click
 
         'Check fields
@@ -53,6 +25,7 @@
 
         'Save demo movie
         DemoMovie.Save(movie)
+        Me.DataSource = movie
         OnMovieChanged(EventArgs.Empty)
 
         'Close the panel

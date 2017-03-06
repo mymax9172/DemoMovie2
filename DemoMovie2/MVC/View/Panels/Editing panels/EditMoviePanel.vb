@@ -22,6 +22,14 @@
         End Select
         genTP.IsActive = True
 
+        If CurrentItem.IsPublished Then
+            SaveButton.Text = "Save && Publish"
+            PublishButton.Visible = False
+        Else
+            SaveButton.Text = "Save"
+            PublishButton.Visible = True
+        End If
+
         Title = "Edit a demo movie: " & CurrentItem.Title
 
         PanelController.This.Show(Me)
@@ -94,13 +102,21 @@
 
     Private Function Save() As Boolean
 
+        Cursor = Cursors.WaitCursor
+
         'Control fields
         If CurrentItem.Title = "" Then Return False
         If CurrentItem.DemoDate = Nothing Then Return False
         If CurrentItem.CustomerName = "" Then Return False
+        If CurrentItem.Author = "" Then CurrentItem.Author = GlobalSettings.This.Author
 
-        'Update object
+        'Update object (locally)
         DemoMovie.Save(CurrentItem)
+
+        'Check if must updated on the cloud
+        If CurrentItem.IsPublished Then PublicServer.This.UploadMovie(CurrentItem)
+
+        Cursor = Cursors.Default
         PanelController.This.Close()
 
         Return True
@@ -113,6 +129,13 @@
             Dim pnl As New MsgBoxPanel
             pnl.Run("Save failed", "Information you provided is not complete, please review", MsgBoxStyle.Information)
         End If
+
+    End Sub
+
+    Private Sub PublishButton_Click(sender As Object, e As EventArgs) Handles PublishButton.Click
+
+        CurrentItem.IsPublished = True
+        SaveButton_Click(Me, EventArgs.Empty)
 
     End Sub
 End Class

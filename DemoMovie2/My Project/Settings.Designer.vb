@@ -53,6 +53,54 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("ftp.agostinoni.it")>  _
+        Public ReadOnly Property FTPServer() As String
+            Get
+                Return CType(Me("FTPServer"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1656858@aruba.it")>  _
+        Public ReadOnly Property FTPUsername() As String
+            Get
+                Return CType(Me("FTPUsername"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("e2v53fzv")>  _
+        Public ReadOnly Property FTPPassword() As String
+            Get
+                Return CType(Me("FTPPassword"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("\agostinoni.it\public\demomovie2")>  _
+        Public ReadOnly Property FTPDirectory() As String
+            Get
+                Return CType(Me("FTPDirectory"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property UseCloud() As Boolean
+            Get
+                Return CType(Me("UseCloud"),Boolean)
+            End Get
+            Set
+                Me("UseCloud") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -15,6 +15,10 @@
 
     Public ReadOnly Property ImageFolder As String
     Public ReadOnly Property DemoMovieFolder As String
+    Public ReadOnly Property DemoMovieCloudFolder As String
+
+    Public ReadOnly Property Author As String
+
     Public Property MainForm As MainForm
     Public Property CurrentMovie As DemoMovie
 
@@ -24,10 +28,15 @@
         Dim appFolder As String = Application.StartupPath
         _ImageFolder = appFolder & "\Images"
         _DemoMovieFolder = appFolder & "\DemoMovies"
+        _DemoMovieCloudFolder = appFolder & "\DemoMovies\Public"
+
+        'Retrieve username
+        _Author = Environment.UserName
 
         'Check folders
         CheckFolder(ImageFolder)
         CheckFolder(DemoMovieFolder)
+        CheckFolder(DemoMovieCloudFolder)
 
     End Sub
 
@@ -41,6 +50,10 @@
             IO.Directory.CreateDirectory(path)
         End If
 
+    End Sub
+
+    Protected Friend Sub ChangeAuthor(name As String)
+        _Author = name
     End Sub
 
 End Class

@@ -17,7 +17,6 @@ Public Class Main
         'Run application
         AddHandler Application.ApplicationExit, AddressOf Quit
 
-
         'Window UI
         Dim frm As New MainForm
         GlobalSettings.This.MainForm = frm

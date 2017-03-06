@@ -16,6 +16,11 @@ Public Class DemoMovie
     Public Property CustomerName As String
     Public Property Type As DEMOTYPE
 
+    Public Property IsCloud As Boolean
+    Public Property IsPublished As Boolean
+
+    Public Author As String
+
     Public Property Actors As List(Of Actor)
     Public Property Scenes As List(Of Scene)
 
@@ -41,7 +46,7 @@ Public Class DemoMovie
         'Check filename
         If this.Filename = "" Then
             'First time saving, create a unique name
-            this.Filename = IO.Path.GetRandomFileName() & ".dm"
+            this.Filename = GlobalSettings.This.Author & "-" & IO.Path.GetRandomFileName() & ".dm"
         End If
 
         'Serialize
@@ -55,12 +60,12 @@ Public Class DemoMovie
     Public Shared Function Load(filename As String) As DemoMovie
 
         'Check filename
-        If Not IO.File.Exists(GlobalSettings.This.DemoMovieFolder & "\" & filename) Then
+        If Not IO.File.Exists(filename) Then
             Return Nothing
         End If
 
         'DeSerialize
-        Dim stream As New IO.FileStream(GlobalSettings.This.DemoMovieFolder & "\" & filename, IO.FileMode.Open)
+        Dim stream As New IO.FileStream(filename, IO.FileMode.Open)
         Dim formatter As New BinaryFormatter
         Dim this As Object = formatter.Deserialize(stream)
         stream.Close()
@@ -84,19 +89,27 @@ Public Class DemoMovie
     ''' Load all demomovies
     ''' </summary>
     ''' <returns>List of all demo movies stored</returns>
-    Public Shared Function GetAll() As List(Of DemoMovie)
+    Public Shared Function GetAll(Optional local As Boolean = True) As List(Of DemoMovie)
 
-        Dim path As String = GlobalSettings.This.DemoMovieFolder
+        Dim path As String
+        If local Then
+            path = GlobalSettings.This.DemoMovieFolder
+        Else
+            path = GlobalSettings.This.DemoMovieCloudFolder
+        End If
+
         Dim filename As String = Dir(path & "\*.dm", FileAttribute.Normal)
         Dim items As New List(Of DemoMovie)
 
         Do While filename <> ""
-            Dim item As DemoMovie = DemoMovie.Load(filename)
+            Dim item As DemoMovie = DemoMovie.Load(path & "\" & filename)
+            If Not local Then item.IsCloud = True
             If item IsNot Nothing Then items.Add(item)
             filename = Dir()
         Loop
 
         Return items
+
     End Function
 
     Public Function GetDummyScene() As Scene

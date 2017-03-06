@@ -27,15 +27,18 @@ Partial Class QuickStageForm
         '
         'ActorUserControl1
         '
+        Me.ActorUserControl1.Active = True
         Me.ActorUserControl1.Actor = Nothing
         Me.ActorUserControl1.AllowDelete = True
+        Me.ActorUserControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ActorUserControl1.BackColor = System.Drawing.Color.LightGray
         Me.ActorUserControl1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ActorUserControl1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ActorUserControl1.Location = New System.Drawing.Point(0, 0)
+        Me.ActorUserControl1.Location = New System.Drawing.Point(1, 2)
         Me.ActorUserControl1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 5)
         Me.ActorUserControl1.Name = "ActorUserControl1"
-        Me.ActorUserControl1.Size = New System.Drawing.Size(150, 200)
+        Me.ActorUserControl1.Size = New System.Drawing.Size(147, 196)
         Me.ActorUserControl1.TabIndex = 0
         '
         'QuickStageForm

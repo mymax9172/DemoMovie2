@@ -12,7 +12,6 @@
         If item.Actors.Count > 0 Then
             ActorUserControl1.Actor = item.Actors.First
             ActorIndex = 0
-            If item.Actors.Count = 1 Then ActorUserControl1.Active = False
         End If
 
         Left = Screen.PrimaryScreen.WorkingArea.Width
@@ -100,18 +99,42 @@
         End If
     End Sub
 
-    Private Sub ActorUserControl1_MouseDown(sender As Object, e As EventArgs) Handles ActorUserControl1.MouseDown
-
-        If ActorIndex = -1 Then Exit Sub
-
-        ActorIndex += 1
-        If ActorIndex > (TakeUserControl1.Take.Actors.Count - 1) Then ActorIndex = 0
-        ActorUserControl1.Actor = TakeUserControl1.Take.Actors(ActorIndex)
-        ActorUserControl1.Refresh()
-
-    End Sub
-
     Private Sub ActorUserControl1_MouseDown(sender As Object, e As MouseEventArgs) Handles ActorUserControl1.MouseDown
 
+        If e.Button = MouseButtons.Left Then
+
+            If TakeUserControl1.Take.Actors.Count > 1 Then
+
+                If ActorIndex = -1 Then Exit Sub
+
+                ActorIndex += 1
+                If ActorIndex > (TakeUserControl1.Take.Actors.Count - 1) Then ActorIndex = 0
+                ActorUserControl1.Actor = TakeUserControl1.Take.Actors(ActorIndex)
+                ActorUserControl1.Refresh()
+
+            End If
+
+        ElseIf e.Button = MouseButtons.Right Then
+
+            Dim target As Integer
+
+            If DefLocation Then
+                target = 0
+            Else
+                target = Screen.PrimaryScreen.WorkingArea.Width - Width
+            End If
+            DefLocation = Not DefLocation
+
+            Dim t As New Transitions.Transition(New Transitions.TransitionType_EaseInEaseOut(200))
+            t.add(Me, "Left", target)
+            t.run()
+
+            Do While (Me.Left <> 0)
+                Application.DoEvents()
+            Loop
+
+        End If
+
     End Sub
+
 End Class

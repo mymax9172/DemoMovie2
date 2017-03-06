@@ -27,8 +27,10 @@ Partial Class MovieUserControl
         Me.EditPictureBox = New System.Windows.Forms.PictureBox()
         Me.CustomerLabel = New System.Windows.Forms.Label()
         Me.DateLabel = New System.Windows.Forms.Label()
+        Me.DownloadPictureBox = New System.Windows.Forms.PictureBox()
         CType(Me.DeletePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EditPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DownloadPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TitleLabel
@@ -91,14 +93,27 @@ Partial Class MovieUserControl
         Me.DateLabel.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.DateLabel.Location = New System.Drawing.Point(3, 117)
         Me.DateLabel.Name = "DateLabel"
-        Me.DateLabel.Size = New System.Drawing.Size(41, 15)
+        Me.DateLabel.Size = New System.Drawing.Size(52, 20)
         Me.DateLabel.TabIndex = 8
         Me.DateLabel.Text = "Label1"
         Me.DateLabel.Visible = False
         '
+        'DownloadPictureBox
+        '
+        Me.DownloadPictureBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DownloadPictureBox.Image = Global.it.mymax.demomovie2.My.Resources.Resources.download_48
+        Me.DownloadPictureBox.Location = New System.Drawing.Point(134, 113)
+        Me.DownloadPictureBox.Name = "DownloadPictureBox"
+        Me.DownloadPictureBox.Size = New System.Drawing.Size(24, 24)
+        Me.DownloadPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.DownloadPictureBox.TabIndex = 9
+        Me.DownloadPictureBox.TabStop = False
+        Me.DownloadPictureBox.Visible = False
+        '
         'MovieUserControl
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.Controls.Add(Me.DownloadPictureBox)
         Me.Controls.Add(Me.DateLabel)
         Me.Controls.Add(Me.CustomerLabel)
         Me.Controls.Add(Me.DeletePictureBox)
@@ -110,6 +125,7 @@ Partial Class MovieUserControl
         Me.Size = New System.Drawing.Size(172, 151)
         CType(Me.DeletePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EditPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DownloadPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -120,4 +136,5 @@ Partial Class MovieUserControl
     Friend WithEvents EditPictureBox As PictureBox
     Friend WithEvents CustomerLabel As Label
     Friend WithEvents DateLabel As Label
+    Friend WithEvents DownloadPictureBox As PictureBox
 End Class

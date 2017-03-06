@@ -32,6 +32,7 @@ Partial Class SplashPanel
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ChangeLogTextBox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.AuthorLabel = New System.Windows.Forms.Label()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -146,9 +147,20 @@ Partial Class SplashPanel
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Change log"
         '
+        'AuthorLabel
+        '
+        Me.AuthorLabel.AutoSize = True
+        Me.AuthorLabel.Location = New System.Drawing.Point(116, 98)
+        Me.AuthorLabel.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.AuthorLabel.Name = "AuthorLabel"
+        Me.AuthorLabel.Size = New System.Drawing.Size(92, 19)
+        Me.AuthorLabel.TabIndex = 10
+        Me.AuthorLabel.Text = "Logged user: "
+        '
         'SplashPanel
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.Controls.Add(Me.AuthorLabel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ChangeLogTextBox)
         Me.Controls.Add(Me.LogoPictureBox)
@@ -179,4 +191,5 @@ Partial Class SplashPanel
     Friend WithEvents LogoPictureBox As PictureBox
     Friend WithEvents ChangeLogTextBox As TextBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents AuthorLabel As Label
 End Class

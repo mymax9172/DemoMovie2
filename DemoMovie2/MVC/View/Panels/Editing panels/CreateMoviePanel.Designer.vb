@@ -51,7 +51,7 @@ Partial Class CreateMoviePanel
         Me.AbortButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.AbortButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AbortButton.ForeColor = System.Drawing.Color.White
-        Me.AbortButton.Location = New System.Drawing.Point(32, 390)
+        Me.AbortButton.Location = New System.Drawing.Point(147, 459)
         Me.AbortButton.Margin = New System.Windows.Forms.Padding(4)
         Me.AbortButton.Name = "AbortButton"
         Me.AbortButton.Size = New System.Drawing.Size(112, 38)
@@ -67,7 +67,7 @@ Partial Class CreateMoviePanel
         Me.CreateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CreateButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CreateButton.ForeColor = System.Drawing.Color.White
-        Me.CreateButton.Location = New System.Drawing.Point(212, 390)
+        Me.CreateButton.Location = New System.Drawing.Point(327, 459)
         Me.CreateButton.Margin = New System.Windows.Forms.Padding(4)
         Me.CreateButton.Name = "CreateButton"
         Me.CreateButton.Size = New System.Drawing.Size(175, 38)
@@ -78,9 +78,9 @@ Partial Class CreateMoviePanel
         'FullLabel2
         '
         Me.FullLabel2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FullLabel2.Location = New System.Drawing.Point(227, 151)
+        Me.FullLabel2.Location = New System.Drawing.Point(284, 204)
         Me.FullLabel2.Name = "FullLabel2"
-        Me.FullLabel2.Size = New System.Drawing.Size(160, 57)
+        Me.FullLabel2.Size = New System.Drawing.Size(186, 57)
         Me.FullLabel2.TabIndex = 13
         Me.FullLabel2.Text = "Multiple scenes with takes and actors. Use it for complex workshop"
         Me.FullLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -88,16 +88,16 @@ Partial Class CreateMoviePanel
         'FullLabel
         '
         Me.FullLabel.AutoSize = True
-        Me.FullLabel.Location = New System.Drawing.Point(125, 165)
+        Me.FullLabel.Location = New System.Drawing.Point(160, 210)
         Me.FullLabel.Name = "FullLabel"
-        Me.FullLabel.Size = New System.Drawing.Size(66, 17)
+        Me.FullLabel.Size = New System.Drawing.Size(87, 23)
         Me.FullLabel.TabIndex = 12
         Me.FullLabel.Text = "Full movie"
         '
         'FullPictureBox
         '
         Me.FullPictureBox.Image = Global.it.mymax.demomovie2.My.Resources.Resources.film_reel_48
-        Me.FullPictureBox.Location = New System.Drawing.Point(67, 151)
+        Me.FullPictureBox.Location = New System.Drawing.Point(102, 196)
         Me.FullPictureBox.Name = "FullPictureBox"
         Me.FullPictureBox.Size = New System.Drawing.Size(48, 48)
         Me.FullPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -107,9 +107,9 @@ Partial Class CreateMoviePanel
         'SimpleLabel2
         '
         Me.SimpleLabel2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SimpleLabel2.Location = New System.Drawing.Point(227, 213)
+        Me.SimpleLabel2.Location = New System.Drawing.Point(284, 266)
         Me.SimpleLabel2.Name = "SimpleLabel2"
-        Me.SimpleLabel2.Size = New System.Drawing.Size(160, 57)
+        Me.SimpleLabel2.Size = New System.Drawing.Size(186, 57)
         Me.SimpleLabel2.TabIndex = 10
         Me.SimpleLabel2.Text = "Use this type of movie when you need a list of takes with actors"
         Me.SimpleLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -117,16 +117,16 @@ Partial Class CreateMoviePanel
         'SimpleLabel
         '
         Me.SimpleLabel.AutoSize = True
-        Me.SimpleLabel.Location = New System.Drawing.Point(121, 228)
+        Me.SimpleLabel.Location = New System.Drawing.Point(156, 273)
         Me.SimpleLabel.Name = "SimpleLabel"
-        Me.SimpleLabel.Size = New System.Drawing.Size(86, 17)
+        Me.SimpleLabel.Size = New System.Drawing.Size(112, 23)
         Me.SimpleLabel.TabIndex = 9
         Me.SimpleLabel.Text = "Simple movie"
         '
         'SimplePictureBox
         '
         Me.SimplePictureBox.Image = Global.it.mymax.demomovie2.My.Resources.Resources.meditation_guru_48
-        Me.SimplePictureBox.Location = New System.Drawing.Point(67, 213)
+        Me.SimplePictureBox.Location = New System.Drawing.Point(102, 258)
         Me.SimplePictureBox.Name = "SimplePictureBox"
         Me.SimplePictureBox.Size = New System.Drawing.Size(48, 48)
         Me.SimplePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -136,9 +136,9 @@ Partial Class CreateMoviePanel
         'QuickLabel2
         '
         Me.QuickLabel2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuickLabel2.Location = New System.Drawing.Point(227, 277)
+        Me.QuickLabel2.Location = New System.Drawing.Point(284, 330)
         Me.QuickLabel2.Name = "QuickLabel2"
-        Me.QuickLabel2.Size = New System.Drawing.Size(160, 57)
+        Me.QuickLabel2.Size = New System.Drawing.Size(186, 57)
         Me.QuickLabel2.TabIndex = 7
         Me.QuickLabel2.Text = "Use this type of movie when you need just a group of actors (cast)" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.QuickLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -146,16 +146,16 @@ Partial Class CreateMoviePanel
         'QuickLabel
         '
         Me.QuickLabel.AutoSize = True
-        Me.QuickLabel.Location = New System.Drawing.Point(121, 294)
+        Me.QuickLabel.Location = New System.Drawing.Point(156, 339)
         Me.QuickLabel.Name = "QuickLabel"
-        Me.QuickLabel.Size = New System.Drawing.Size(79, 17)
+        Me.QuickLabel.Size = New System.Drawing.Size(104, 23)
         Me.QuickLabel.TabIndex = 6
         Me.QuickLabel.Text = "Quick movie"
         '
         'QuickPictureBox
         '
         Me.QuickPictureBox.Image = Global.it.mymax.demomovie2.My.Resources.Resources.bird_48
-        Me.QuickPictureBox.Location = New System.Drawing.Point(67, 277)
+        Me.QuickPictureBox.Location = New System.Drawing.Point(102, 322)
         Me.QuickPictureBox.Name = "QuickPictureBox"
         Me.QuickPictureBox.Size = New System.Drawing.Size(48, 48)
         Me.QuickPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -165,30 +165,29 @@ Partial Class CreateMoviePanel
         'TypeTrackBar
         '
         Me.TypeTrackBar.LargeChange = 1
-        Me.TypeTrackBar.Location = New System.Drawing.Point(27, 161)
+        Me.TypeTrackBar.Location = New System.Drawing.Point(62, 206)
         Me.TypeTrackBar.Maximum = 3
         Me.TypeTrackBar.Minimum = 1
         Me.TypeTrackBar.Name = "TypeTrackBar"
         Me.TypeTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical
-        Me.TypeTrackBar.Size = New System.Drawing.Size(45, 155)
+        Me.TypeTrackBar.Size = New System.Drawing.Size(56, 155)
         Me.TypeTrackBar.TabIndex = 4
         Me.TypeTrackBar.Value = 1
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(24, 111)
+        Me.Label2.Location = New System.Drawing.Point(23, 117)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(301, 17)
+        Me.Label2.Size = New System.Drawing.Size(459, 55)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Select the type of demo movie  (scroll the pointer)"
+        Me.Label2.Text = "Select the type of demo movie  (scroll the pointer up and down)"
         '
         'TitleTextBox
         '
         Me.TitleTextBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleTextBox.Location = New System.Drawing.Point(27, 26)
         Me.TitleTextBox.Name = "TitleTextBox"
-        Me.TitleTextBox.Size = New System.Drawing.Size(360, 27)
+        Me.TitleTextBox.Size = New System.Drawing.Size(360, 32)
         Me.TitleTextBox.TabIndex = 18
         Me.TitleTextBox.WaterMarkColor = System.Drawing.Color.Gray
         Me.TitleTextBox.WaterMarkText = "Title of the demo movie"
@@ -198,7 +197,7 @@ Partial Class CreateMoviePanel
         Me.CustomerTextBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CustomerTextBox.Location = New System.Drawing.Point(27, 59)
         Me.CustomerTextBox.Name = "CustomerTextBox"
-        Me.CustomerTextBox.Size = New System.Drawing.Size(360, 27)
+        Me.CustomerTextBox.Size = New System.Drawing.Size(360, 32)
         Me.CustomerTextBox.TabIndex = 19
         Me.CustomerTextBox.WaterMarkColor = System.Drawing.Color.Gray
         Me.CustomerTextBox.WaterMarkText = "Customer name"
@@ -225,7 +224,7 @@ Partial Class CreateMoviePanel
         Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "CreateMoviePanel"
-        Me.Size = New System.Drawing.Size(404, 443)
+        Me.Size = New System.Drawing.Size(519, 512)
         Me.Title = "Create a brand new demo movie"
         CType(Me.FullPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SimplePictureBox, System.ComponentModel.ISupportInitialize).EndInit()

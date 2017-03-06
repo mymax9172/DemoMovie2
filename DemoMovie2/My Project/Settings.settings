@@ -1,5 +1,21 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" UseMySettingsClassName="true">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
   <Profiles />
-  <Settings />
+  <Settings>
+    <Setting Name="FTPServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ftp.agostinoni.it</Value>
+    </Setting>
+    <Setting Name="FTPUsername" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1656858@aruba.it</Value>
+    </Setting>
+    <Setting Name="FTPPassword" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">e2v53fzv</Value>
+    </Setting>
+    <Setting Name="FTPDirectory" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\agostinoni.it\public\demomovie2</Value>
+    </Setting>
+    <Setting Name="UseCloud" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

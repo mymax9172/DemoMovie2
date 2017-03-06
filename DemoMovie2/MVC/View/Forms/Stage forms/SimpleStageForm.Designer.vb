@@ -68,6 +68,7 @@ Partial Class SimpleStageForm
         Me.Opacity = 0.8R
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "DirectorStageForm"
+        Me.TopMost = True
         Me.ResumeLayout(False)
 
     End Sub

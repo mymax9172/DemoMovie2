@@ -1,5 +1,7 @@
 ﻿Public Class MainPanel
 
+    Private Property DownloadedCloud As Boolean = False
+
     Protected Friend Overrides Sub OnShowed(e As EventArgs)
         MyBase.OnShowed(e)
 
@@ -15,7 +17,6 @@
 
         'Load all demo movies
         Dim items As List(Of DemoMovie) = DemoMovie.GetAll()
-        Dim odd As Boolean = True
 
         For Each item As DemoMovie In items
             Dim uc As New MovieUserControl
@@ -32,6 +33,44 @@
             MoviesFlowLayoutPanel.Controls.Add(uc)
 
         Next
+
+        'Check if cloud is allowed
+        If My.Settings.UseCloud Then
+
+            'Show downloaded movies
+            If DownloadedCloud Then
+
+                'Load all public demo movies
+                items = DemoMovie.GetAll(False)
+
+                For Each item As DemoMovie In items
+                    Dim uc As New MovieUserControl
+                    uc.CurrentItem = item
+                    uc.Visible = True
+                    uc.Size = New Size(150, 150)
+
+                    AddHandler uc.Download, AddressOf DownloadMovie
+                    AddHandler uc.Delete, AddressOf DeleteCloudMovie_Begin
+
+                    MoviesFlowLayoutPanel.Controls.Add(uc)
+                Next
+
+            Else
+
+                Dim cloudItem As New CloudUserControl
+                cloudItem.Visible = True
+                cloudItem.BackColor = Color.WhiteSmoke
+                cloudItem.BorderStyle = System.Windows.Forms.BorderStyle.None
+                cloudItem.Size = New Size(150, 150)
+                AddHandler cloudItem.Click, AddressOf DownloadCloudMovies
+                MoviesFlowLayoutPanel.Controls.Add(cloudItem)
+
+                'Adjust size
+                MoviesFlowLayoutPanel.Controls(MoviesFlowLayoutPanel.Controls.Count - 1).Size = New Size(150, 150)
+
+            End If
+
+        End If
 
         'Insert the Add button
         Dim addItem As New AddUserControl
@@ -108,7 +147,10 @@
 
     End Sub
 
+
 #End Region
+
+#Region "Edit"
 
     Private Sub EditMovie_Begin(sender As Object, e As EventArgs)
 
@@ -136,6 +178,77 @@
 
     End Sub
 
+#End Region
+
+#Region "Public cloud "
+
+    Private Sub DownloadCloudMovies(sender As Object, e As EventArgs)
+
+        Cursor = Cursors.WaitCursor
+
+        'Establish a connection
+        If PublicServer.This.IsConnected Then
+
+            PublicServer.This.GetPublicFaces()
+            PublicServer.This.GetAllPublicMovies()
+
+        End If
+
+        Cursor = Cursors.Default
+        DownloadedCloud = True
+
+        Me.RefreshList()
+
+    End Sub
+
+    Private Sub DownloadMovie(sender As Object, e As EventArgs)
+
+        Dim item As MovieUserControl = DirectCast(sender, MovieUserControl)
+        Dim movie As DemoMovie = item.CurrentItem
+        movie.Filename = ""
+        movie.Author = GlobalSettings.This.Author
+        movie.IsCloud = False
+        movie.IsPublished = False
+        DemoMovie.Save(movie)
+
+        Me.RefreshList()
+
+    End Sub
+
+
+    Private Sub DeleteCloudMovie_Begin(sender As Object, e As EventArgs)
+
+        Dim pnl As New MsgBoxPanel
+        Dim item As MovieUserControl = DirectCast(sender, MovieUserControl)
+        Dim qst As String = "Are you sure to remove this movie from the Cloud?" & vbCrLf & vbCrLf & "Movie to remove: {0}"
+
+        pnl.Run("Remove (unpublish) a movie file", String.Format(qst, item.CurrentItem.Title), MsgBoxStyle.YesNo)
+        pnl.Tag = item
+
+        AddHandler pnl.Closed, AddressOf DeleteCloudMovie_End
+
+    End Sub
+
+    Private Sub DeleteCloudMovie_End(sender As Object, e As EventArgs)
+
+        Dim pnl As MsgBoxPanel = DirectCast(sender, MsgBoxPanel)
+        RemoveHandler pnl.Closed, AddressOf CreateMovie_End
+
+        If pnl.Result = MsgBoxResult.Yes Then
+            Dim item As MovieUserControl = DirectCast(pnl.Tag, MovieUserControl)
+            Dim movie As DemoMovie = item.CurrentItem
+            PublicServer.This.UnPublish(movie)
+
+            'Remove automatically this control
+            MoviesFlowLayoutPanel.Controls.Remove(item)
+
+            RefreshList()
+        End If
+
+    End Sub
+
+#End Region
+
     Private Sub PlayMovie(sender As Object, e As EventArgs)
 
         Dim item As MovieUserControl = DirectCast(sender, MovieUserControl)
@@ -156,7 +269,7 @@
                 frm.Run()
         End Select
 
-        GlobalSettings.This.MainForm.WindowState = FormWindowState.Minimized
+        GlobalSettings.This.MainForm.Hide()
 
     End Sub
 End Class

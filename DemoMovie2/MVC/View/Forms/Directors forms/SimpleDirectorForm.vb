@@ -66,7 +66,7 @@ Public Class SimpleDirectorForm
         Close()
 
         GlobalSettings.This.CurrentMovie = Nothing
-        GlobalSettings.This.MainForm.WindowState = FormWindowState.Normal
+        GlobalSettings.This.MainForm.Show()
 
     End Sub
 

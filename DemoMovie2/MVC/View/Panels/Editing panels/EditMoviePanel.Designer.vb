@@ -24,6 +24,7 @@ Partial Class EditMoviePanel
     Private Sub InitializeComponent()
         Me.TabPagesPanel = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PublishButton = New System.Windows.Forms.Button()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.AbortButton = New System.Windows.Forms.Button()
         Me.TabsPanel = New System.Windows.Forms.Panel()
@@ -41,6 +42,7 @@ Partial Class EditMoviePanel
         'Panel1
         '
         Me.Panel1.BackgroundImage = Global.it.mymax.demomovie2.My.Resources.Resources.backgroundDM
+        Me.Panel1.Controls.Add(Me.PublishButton)
         Me.Panel1.Controls.Add(Me.SaveButton)
         Me.Panel1.Controls.Add(Me.AbortButton)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -48,6 +50,22 @@ Partial Class EditMoviePanel
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(667, 46)
         Me.Panel1.TabIndex = 4
+        '
+        'PublishButton
+        '
+        Me.PublishButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PublishButton.BackColor = System.Drawing.Color.DeepSkyBlue
+        Me.PublishButton.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.PublishButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.PublishButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PublishButton.ForeColor = System.Drawing.Color.White
+        Me.PublishButton.Location = New System.Drawing.Point(361, 4)
+        Me.PublishButton.Margin = New System.Windows.Forms.Padding(4)
+        Me.PublishButton.Name = "PublishButton"
+        Me.PublishButton.Size = New System.Drawing.Size(136, 38)
+        Me.PublishButton.TabIndex = 6
+        Me.PublishButton.Text = "Publish"
+        Me.PublishButton.UseVisualStyleBackColor = True
         '
         'SaveButton
         '
@@ -57,10 +75,10 @@ Partial Class EditMoviePanel
         Me.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(527, 4)
+        Me.SaveButton.Location = New System.Drawing.Point(505, 4)
         Me.SaveButton.Margin = New System.Windows.Forms.Padding(4)
         Me.SaveButton.Name = "SaveButton"
-        Me.SaveButton.Size = New System.Drawing.Size(136, 38)
+        Me.SaveButton.Size = New System.Drawing.Size(158, 38)
         Me.SaveButton.TabIndex = 4
         Me.SaveButton.Text = "Save"
         Me.SaveButton.UseVisualStyleBackColor = True
@@ -108,4 +126,5 @@ Partial Class EditMoviePanel
     Friend WithEvents AbortButton As Button
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TabPagesPanel As Panel
+    Friend WithEvents PublishButton As Button
 End Class
