@@ -144,7 +144,6 @@ Partial Class MainForm
         Me.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "MainForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TopPanel.ResumeLayout(False)
         Me.TopPanel.PerformLayout()
         CType(Me.LinePictureBox, System.ComponentModel.ISupportInitialize).EndInit()

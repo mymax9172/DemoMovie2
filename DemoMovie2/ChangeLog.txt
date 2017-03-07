@@ -1,10 +1,17 @@
 ﻿Version 0.4
-- Added support for shared demo movie
+- Added support for shared demo movie, upload and download public movies
+- Added support for extend dekstop (director and stage form are showed on extended desktop only)
 - Changed customer name on demo, always visibile (non only on selected movie)
-- Changed starting size to full screen. Dbl click on top bar to revert on normal behaviour (movable and sizeble form) 
+- Changed starting size to full screen. Dbl click on top bar to revert on normal behaviour (movable and sizable form) 
 - Changed type of demo movie on creation. Always visibile types, not anymore depending on trackbar
 - Bug fixed: Movie can now be played by clicking on customer or date label, not only on title label
-
+- Bug fixed: Splash screen shape hides the Start button. Moved to the top
+- Bug fixed: Actor name was not visibile on quick stage form
+- Bug fixed: Simple stage form was not transparent and not moveable
+- Bug fixed: Just one demo at a time can be played
+- Bug fixed: Once deleted a public movie it was displayed again on the main panel. Solved
+- Bug fixed: Empty movies cannot be played
+ 
 Version 0.3 rev 3
 - Added automatic name (from file name) on create actor form
 - Added predefined business role for actor form

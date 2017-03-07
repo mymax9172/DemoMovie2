@@ -85,6 +85,16 @@ Public Class DemoMovie
 
     End Sub
 
+    Public Shared Sub DeleteTempFile(filename As String)
+
+        'Check filename
+        If Not IO.File.Exists(filename) Then Exit Sub
+
+        'Deletion
+        IO.File.Delete(filename)
+
+    End Sub
+
     ''' <summary>
     ''' Load all demomovies
     ''' </summary>

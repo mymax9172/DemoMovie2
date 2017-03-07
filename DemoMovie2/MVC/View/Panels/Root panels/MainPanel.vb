@@ -189,7 +189,6 @@
         'Establish a connection
         If PublicServer.This.IsConnected Then
 
-            PublicServer.This.GetPublicFaces()
             PublicServer.This.GetAllPublicMovies()
 
         End If
@@ -205,12 +204,20 @@
 
         Dim item As MovieUserControl = DirectCast(sender, MovieUserControl)
         Dim movie As DemoMovie = item.CurrentItem
+        Dim tempFilename As String = movie.Filename
+
+        'Copy the movie as a new one
         movie.Filename = ""
+        movie.Title = "Copy of " & movie.Title
         movie.Author = GlobalSettings.This.Author
         movie.IsCloud = False
         movie.IsPublished = False
         DemoMovie.Save(movie)
 
+        'Delete movie from the local cloud directory
+        DemoMovie.DeleteTempFile(GlobalSettings.This.DemoMovieCloudFolder & "\" & tempFilename)
+
+        'Refresh the list
         Me.RefreshList()
 
     End Sub
@@ -249,6 +256,9 @@
 
 #End Region
 
+#Region "Playing"
+
+
     Private Sub PlayMovie(sender As Object, e As EventArgs)
 
         Dim item As MovieUserControl = DirectCast(sender, MovieUserControl)
@@ -257,14 +267,59 @@
         'Store the current movie
         GlobalSettings.This.CurrentMovie = movie
 
+        'Check if a project is available
+        If Screen.AllScreens.Count > 1 Then
+
+            'Request confirmation to use it
+            Dim pnl As New MsgBoxPanel
+            Dim qst As String = "A projector has been detected." & vbCrLf & vbCrLf & "Do you want to project director/stage forms there?"
+            pnl.Run("Projector detected", qst, MsgBoxStyle.YesNo)
+
+            AddHandler pnl.Closed, AddressOf PlayMovie_End
+        Else
+
+            PlayOnThisScreen(Screen.PrimaryScreen)
+        End If
+
+    End Sub
+
+    Private Sub PlayMovie_End(sender As Object, e As EventArgs)
+
+        Dim pnl As MsgBoxPanel = DirectCast(sender, MsgBoxPanel)
+        RemoveHandler pnl.Closed, AddressOf PlayMovie_End
+
+        If pnl.Result = MsgBoxResult.Yes Then
+            PlayOnThisScreen(Screen.AllScreens(1))
+
+        Else
+            PlayOnThisScreen(Screen.PrimaryScreen)
+        End If
+
+    End Sub
+
+    Private Sub PlayOnThisScreen(s As Screen)
+
+        Dim movie As DemoMovie = GlobalSettings.This.CurrentMovie
+        GlobalSettings.This.UseThisScreen = s
+
         Select Case movie.Type
             Case DemoMovie.DEMOTYPE.Quick
+                'Check if some actors are defined
+                If movie.Actors.Count = 0 Then Exit Sub
+
                 Dim frm As New QuickDirectorForm
                 frm.Run()
+
             Case DemoMovie.DEMOTYPE.Simple
+                'Check if one take is defined
+                If movie.GetDummyScene.Takes.Count = 0 Then Exit Sub
+
                 Dim frm As New SimpleDirectorForm
                 frm.Run()
             Case DemoMovie.DEMOTYPE.Full
+                'Check if a scene is defined
+                If movie.Scenes.Count = 0 Then Exit Sub
+
                 Dim frm As New FullDirectorForm
                 frm.Run()
         End Select
@@ -272,4 +327,7 @@
         GlobalSettings.This.MainForm.Hide()
 
     End Sub
+
+#End Region
+
 End Class

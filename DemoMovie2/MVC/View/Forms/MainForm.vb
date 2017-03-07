@@ -33,10 +33,10 @@
         AuthorLabel.Text = GlobalSettings.This.Author
 
         'Size to the middle of the screen
-        Width = CInt(Screen.PrimaryScreen.WorkingArea.Width / 2)
-        Height = CInt(Screen.PrimaryScreen.WorkingArea.Height / 2)
-        Left = CInt(Width / 2)
-        Top = CInt(Height / 2)
+        Width = CInt(Screen.PrimaryScreen.WorkingArea.Width / 3 * 2)
+        Height = CInt(Screen.PrimaryScreen.WorkingArea.Height / 3 * 2)
+        Left = CInt(Width / 4)
+        Top = CInt(Height / 4)
 
         'Start with the splash panel
         Dim pnl As New SplashPanel

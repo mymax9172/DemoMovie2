@@ -1,12 +1,12 @@
 ﻿Public Class QuickDirectorForm
 
     Private Property movie As DemoMovie = GlobalSettings.This.CurrentMovie
+    Private thisScreen As Screen = GlobalSettings.This.UseThisScreen
 
     Public Sub Run()
 
-        Width = CInt(Screen.PrimaryScreen.WorkingArea.Width / 5 * 3)
-        Left = CInt(Width / 3)
-        Top = -Height
+        Width = CInt(thisScreen.WorkingArea.Width / 5 * 3)
+        Location = thisScreen.Bounds.Location + New Point(CInt(Width / 3), -Height)
         Show()
         Application.DoEvents()
 
@@ -30,9 +30,9 @@
 
         'Set the target
         If Not show Then
-            target = -Height
+            target = thisScreen.Bounds.Location.Y - Height
         Else
-            Left = CInt((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2)
+            Left = thisScreen.Bounds.Location.X + CInt((thisScreen.WorkingArea.Width - Width) / 2)
             target = 0
         End If
 

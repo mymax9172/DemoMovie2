@@ -27,12 +27,13 @@ Partial Class SplashPanel
         Me.VersionLabel = New System.Windows.Forms.Label()
         Me.StartButton = New System.Windows.Forms.Button()
         Me.CopyrightLabel = New System.Windows.Forms.Label()
-        Me.SeeLicenseButton = New System.Windows.Forms.Button()
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ChangeLogTextBox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.AuthorLabel = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -59,13 +60,13 @@ Partial Class SplashPanel
         '
         'StartButton
         '
-        Me.StartButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.StartButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.StartButton.BackColor = System.Drawing.Color.DeepSkyBlue
         Me.StartButton.Cursor = System.Windows.Forms.Cursors.Hand
         Me.StartButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.StartButton.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StartButton.ForeColor = System.Drawing.Color.White
-        Me.StartButton.Location = New System.Drawing.Point(517, 514)
+        Me.StartButton.Location = New System.Drawing.Point(517, 148)
         Me.StartButton.Margin = New System.Windows.Forms.Padding(4)
         Me.StartButton.Name = "StartButton"
         Me.StartButton.Size = New System.Drawing.Size(175, 38)
@@ -83,22 +84,6 @@ Partial Class SplashPanel
         Me.CopyrightLabel.Size = New System.Drawing.Size(674, 176)
         Me.CopyrightLabel.TabIndex = 3
         Me.CopyrightLabel.Text = resources.GetString("CopyrightLabel.Text")
-        '
-        'SeeLicenseButton
-        '
-        Me.SeeLicenseButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.SeeLicenseButton.BackColor = System.Drawing.Color.DarkGray
-        Me.SeeLicenseButton.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.SeeLicenseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.SeeLicenseButton.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SeeLicenseButton.ForeColor = System.Drawing.Color.White
-        Me.SeeLicenseButton.Location = New System.Drawing.Point(22, 514)
-        Me.SeeLicenseButton.Margin = New System.Windows.Forms.Padding(4)
-        Me.SeeLicenseButton.Name = "SeeLicenseButton"
-        Me.SeeLicenseButton.Size = New System.Drawing.Size(175, 38)
-        Me.SeeLicenseButton.TabIndex = 4
-        Me.SeeLicenseButton.Text = "See GNU license"
-        Me.SeeLicenseButton.UseVisualStyleBackColor = False
         '
         'LogoPictureBox
         '
@@ -129,18 +114,18 @@ Partial Class SplashPanel
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ChangeLogTextBox.BackColor = System.Drawing.Color.White
         Me.ChangeLogTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.ChangeLogTextBox.Location = New System.Drawing.Point(22, 368)
+        Me.ChangeLogTextBox.Location = New System.Drawing.Point(22, 390)
         Me.ChangeLogTextBox.Multiline = True
         Me.ChangeLogTextBox.Name = "ChangeLogTextBox"
         Me.ChangeLogTextBox.ReadOnly = True
         Me.ChangeLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.ChangeLogTextBox.Size = New System.Drawing.Size(670, 124)
+        Me.ChangeLogTextBox.Size = New System.Drawing.Size(670, 165)
         Me.ChangeLogTextBox.TabIndex = 8
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(19, 343)
+        Me.Label2.Location = New System.Drawing.Point(20, 368)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(79, 19)
@@ -157,17 +142,37 @@ Partial Class SplashPanel
         Me.AuthorLabel.TabIndex = 10
         Me.AuthorLabel.Text = "Logged user: "
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(18, 315)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(227, 19)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "Click          to open the GNU license"
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(53, 315)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(36, 19)
+        Me.LinkLabel1.TabIndex = 12
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "here"
+        '
         'SplashPanel
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.Controls.Add(Me.StartButton)
+        Me.Controls.Add(Me.LinkLabel1)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.AuthorLabel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.ChangeLogTextBox)
         Me.Controls.Add(Me.LogoPictureBox)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.SeeLicenseButton)
         Me.Controls.Add(Me.CopyrightLabel)
-        Me.Controls.Add(Me.StartButton)
         Me.Controls.Add(Me.VersionLabel)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -186,10 +191,11 @@ Partial Class SplashPanel
     Friend WithEvents VersionLabel As Label
     Friend WithEvents StartButton As Button
     Friend WithEvents CopyrightLabel As Label
-    Friend WithEvents SeeLicenseButton As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents LogoPictureBox As PictureBox
     Friend WithEvents ChangeLogTextBox As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents AuthorLabel As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

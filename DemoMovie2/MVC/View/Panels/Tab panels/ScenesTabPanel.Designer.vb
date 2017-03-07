@@ -75,10 +75,10 @@ Partial Class ScenesTabPanel
         Me.ScenesListUserControl.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ScenesListUserControl.Location = New System.Drawing.Point(24, 267)
+        Me.ScenesListUserControl.Location = New System.Drawing.Point(17, 267)
         Me.ScenesListUserControl.Name = "ScenesListUserControl"
         Me.ScenesListUserControl.Scenes = Nothing
-        Me.ScenesListUserControl.Size = New System.Drawing.Size(811, 291)
+        Me.ScenesListUserControl.Size = New System.Drawing.Size(818, 291)
         Me.ScenesListUserControl.TabIndex = 9
         '
         'Label1

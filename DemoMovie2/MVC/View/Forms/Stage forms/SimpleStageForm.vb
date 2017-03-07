@@ -4,6 +4,8 @@
     Private DefLocation As Boolean = True
     Private ActorIndex As Integer = -1
 
+    Private thisScreen As Screen = GlobalSettings.This.UseThisScreen
+
     Public Sub Run(item As Take, owner As ISwipeForm)
 
         TakeUserControl1.Take = item
@@ -14,8 +16,7 @@
             ActorIndex = 0
         End If
 
-        Left = Screen.PrimaryScreen.WorkingArea.Width
-        Top = CInt(Screen.PrimaryScreen.WorkingArea.Height / 10)
+        Location = thisScreen.Bounds.Location + New Point(thisScreen.WorkingArea.Width, 0)
         OwnerMain = owner
         Show()
 
@@ -31,7 +32,7 @@
         Dim target As Integer
 
         'Set the target
-        If Not show Then target = Screen.PrimaryScreen.WorkingArea.Width Else target = Screen.PrimaryScreen.WorkingArea.Width - Width
+        If Not show Then target = thisScreen.Bounds.Location.X + thisScreen.WorkingArea.Width Else target = thisScreen.Bounds.Location.X + thisScreen.WorkingArea.Width - Width
 
         Me.Visible = True
         Dim t As New Transitions.Transition(New Transitions.TransitionType_EaseInEaseOut(500))
@@ -82,9 +83,9 @@
             Dim target As Integer
 
             If DefLocation Then
-                target = 0
+                target = thisScreen.Bounds.Location.X
             Else
-                target = Screen.PrimaryScreen.WorkingArea.Width - Width
+                target = thisScreen.Bounds.Location.X + thisScreen.WorkingArea.Width - Width
             End If
             DefLocation = Not DefLocation
 
@@ -92,7 +93,7 @@
             t.add(Me, "Left", target)
             t.run()
 
-            Do While (Me.Left <> 0)
+            Do While (Me.Left <> target)
                 Application.DoEvents()
             Loop
 
@@ -119,9 +120,9 @@
             Dim target As Integer
 
             If DefLocation Then
-                target = 0
+                target = thisScreen.Bounds.Location.X
             Else
-                target = Screen.PrimaryScreen.WorkingArea.Width - Width
+                target = thisScreen.Bounds.Location.X + thisScreen.WorkingArea.Width - Width
             End If
             DefLocation = Not DefLocation
 
@@ -129,7 +130,7 @@
             t.add(Me, "Left", target)
             t.run()
 
-            Do While (Me.Left <> 0)
+            Do While (Me.Left <> target)
                 Application.DoEvents()
             Loop
 

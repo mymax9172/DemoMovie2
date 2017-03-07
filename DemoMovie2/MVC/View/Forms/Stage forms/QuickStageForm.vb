@@ -3,14 +3,14 @@
     Private OwnerMain As QuickDirectorForm
     Private DefLocation As Boolean = True
 
+    Private thisScreen As Screen = GlobalSettings.This.UseThisScreen
+
     Public Sub Run(item As Actor, owner As QuickDirectorForm)
 
         ActorUserControl1.Actor = item
 
-        Left = Screen.PrimaryScreen.WorkingArea.Width
-        Top = CInt(Screen.PrimaryScreen.WorkingArea.Height / 10)
+        Location = thisScreen.Bounds.Location + New Point(thisScreen.WorkingArea.Width, 0)
         OwnerMain = owner
-        Size = New Size(100, 200)
         Show()
 
         Swipe(True)
@@ -22,7 +22,7 @@
         Dim target As Integer
 
         'Set the target
-        If Not show Then target = Screen.PrimaryScreen.WorkingArea.Width Else target = Screen.PrimaryScreen.WorkingArea.Width - Width
+        If Not show Then target = thisScreen.Bounds.Location.X + thisScreen.WorkingArea.Width Else target = thisScreen.Bounds.Location.X + thisScreen.WorkingArea.Width - Width
 
         Me.Visible = True
         Dim t As New Transitions.Transition(New Transitions.TransitionType_EaseInEaseOut(500))
@@ -50,9 +50,9 @@
             Dim target As Integer
 
             If DefLocation Then
-                target = 0
+                target = thisScreen.Bounds.Location.X
             Else
-                target = Screen.PrimaryScreen.WorkingArea.Width - Width
+                target = thisScreen.Bounds.Location.X + thisScreen.WorkingArea.Width - Width
             End If
             DefLocation = Not DefLocation
 
@@ -60,7 +60,7 @@
             t.add(Me, "Left", target)
             t.run()
 
-            Do While (Me.Left <> 0)
+            Do While (Me.Left <> target)
                 Application.DoEvents()
             Loop
 

@@ -22,6 +22,8 @@
     Public Property MainForm As MainForm
     Public Property CurrentMovie As DemoMovie
 
+    Public Property UseThisScreen As Screen
+
     Private Sub New()
 
         'Initialize folders

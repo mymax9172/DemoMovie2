@@ -1,5 +1,32 @@
 ﻿Public Class ActorUserControl
 
+#Region "Microsft KB953934"
+
+    Public Delegate Sub SizeChangedDelegate(ByVal e As EventArgs)
+
+    Private Sub SizeChangedDelegateHandler(ByVal e As EventArgs)
+
+        MyBase.OnSizeChanged(e)
+
+    End Sub
+
+    Protected Overrides Sub OnSizeChanged(ByVal e As EventArgs)
+
+        If Me.Handle.ToInt32 > 0 Then
+
+            Dim obj(0) As Object
+
+            obj(0) = e
+
+            Dim scd As New SizeChangedDelegate(AddressOf SizeChangedDelegateHandler)
+            Me.BeginInvoke(scd, obj)
+
+        End If
+
+    End Sub
+
+#End Region
+
     Private _Active As Boolean = True
     Public Property Active As Boolean
         Get

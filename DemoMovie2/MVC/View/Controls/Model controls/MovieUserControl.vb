@@ -32,12 +32,18 @@
                 End Select
 
                 If value.IsCloud Then
-                    BackColor = Color.LightGray
                     AllowEdit = False
                     AllowDelete = CBool(value.Author = GlobalSettings.This.Author)
                     DeletePictureBox.Visible = False
                     EditPictureBox.Visible = False
                     DownloadPictureBox.Visible = True
+
+                    Select Case value.Type
+                        Case DemoMovie.DEMOTYPE.Quick : BackColor = Color.LightGray
+                        Case DemoMovie.DEMOTYPE.Simple : BackColor = Color.Gray
+                        Case DemoMovie.DEMOTYPE.Full : BackColor = Color.DarkGray
+                    End Select
+
                 End If
             Else
                 TitleLabel.Visible = False
