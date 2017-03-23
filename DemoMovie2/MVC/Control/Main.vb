@@ -17,11 +17,14 @@ Public Class Main
         'Run application
         AddHandler Application.ApplicationExit, AddressOf Quit
 
-        'Window UI
+        'check args
         Dim frm As New MainForm
         GlobalSettings.This.MainForm = frm
         PanelController.This.Container = frm.ClientPanel
 
+        frm.Run()
+
+        'Run windows message loop
         Application.Run(frm)
 
     End Sub
@@ -33,6 +36,9 @@ Public Class Main
 
         'Initialize GlobalSetting object
         GlobalSettings.Init()
+
+        'Initialize database
+        Database.This.LoadAll()
 
     End Sub
 

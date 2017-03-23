@@ -12,9 +12,11 @@
 
             Case DemoMovie.DEMOTYPE.Quick
                 CreateTabPage("Cast", New Size(100, 50), New Point(107, 5), GetType(ActorsTabPanel))
+
             Case DemoMovie.DEMOTYPE.Simple
                 CreateTabPage("Cast", New Size(100, 50), New Point(107, 5), GetType(ActorsTabPanel))
                 CreateTabPage("Takes", New Size(100, 50), New Point(209, 5), GetType(TakesTabPanel))
+
             Case DemoMovie.DEMOTYPE.Full
                 CreateTabPage("Cast", New Size(100, 50), New Point(107, 5), GetType(ActorsTabPanel))
                 CreateTabPage("Scenes", New Size(100, 50), New Point(209, 5), GetType(ScenesTabPanel))

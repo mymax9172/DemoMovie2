@@ -63,6 +63,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property arrow_down() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("arrow-down", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property audition() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("audition", resourceCulture)
@@ -76,6 +86,16 @@ Namespace My.Resources
         Friend ReadOnly Property backgroundDM() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("backgroundDM", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property backspace_48() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("backspace-48", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
@@ -111,15 +131,17 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to Version 0.4
-        '''- Changed customer name on demo, always visibile (non only on selected movie)
-        '''- Changed starting size to full screen. Dbl click on top bar to revert on normal behaviour (movable and sizeble form) 
-        '''- Changed type of demo movie on creation. Always visibile types, not anymore depending on trackbar
-        '''- Bug fixed: Movie can now be played by clicking on customer or date label, not only on title label
+        '''  Looks up a localized string similar to Version 0.6
+        '''- Added reminders for planned demo movies
+        '''- Added notify icon on task bar. Direct play from menu, app stays running in background
+        '''- Added a way to show the process without exit from the current task
+        '''- Bug fixed: Selecting an actor into a single take was impossible for more than 4 actors- Added scrollbars
         '''
-        '''Version 0.3 rev 3
-        '''- Added automatic name (from file name) on create actor form
-        '''- Added predefin [rest of string was truncated]&quot;;.
+        '''Version 0.5
+        '''- Changed folder structure. Root folder is now MyDocuments\DemoMovie2
+        '''
+        '''Version 0.4.1
+        '''- Bug fixed: Pictures were not copied once the user downloaded a public demo movie. So [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property ChangeLog() As String
             Get

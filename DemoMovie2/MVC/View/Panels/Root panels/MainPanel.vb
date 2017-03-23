@@ -6,6 +6,7 @@
         MyBase.OnShowed(e)
 
         RefreshList()
+        AddHandler ReminderManager.This.Alert, AddressOf Alert
 
     End Sub
 
@@ -16,7 +17,8 @@
         MoviesFlowLayoutPanel.Controls.Clear()
 
         'Load all demo movies
-        Dim items As List(Of DemoMovie) = DemoMovie.GetAll()
+        'Dim items As List(Of DemoMovie) = DemoMovie.GetAll()
+        Dim items As List(Of DemoMovie) = Database.This.LocalMovies
 
         For Each item As DemoMovie In items
             Dim uc As New MovieUserControl
@@ -34,6 +36,9 @@
 
         Next
 
+        'Start reminder
+        ReminderManager.This.RefreshReminders(items)
+
         'Check if cloud is allowed
         If My.Settings.UseCloud Then
 
@@ -41,7 +46,8 @@
             If DownloadedCloud Then
 
                 'Load all public demo movies
-                items = DemoMovie.GetAll(False)
+                'items = DemoMovie.GetAll(False)
+                items = Database.This.CloudMovies
 
                 For Each item As DemoMovie In items
                     Dim uc As New MovieUserControl
@@ -92,6 +98,14 @@
 
         MoviesFlowLayoutPanel.Width = Owner.ClientSize.Width - 10
         MoviesFlowLayoutPanel.Height = Owner.ClientRectangle.Height - 50
+
+    End Sub
+
+    Private Sub Alert(sender As Object, e As EventArgs)
+
+        Dim r As Reminder = DirectCast(sender, Reminder)
+
+        GlobalSettings.This.MainForm.DemoMovieNotifyIcon.ShowBalloonTip(3000, "DemoMovie2 - Alert", r.Movie.Title & " is planned ", ToolTipIcon.Info)
 
     End Sub
 
@@ -206,6 +220,11 @@
         Dim movie As DemoMovie = item.CurrentItem
         Dim tempFilename As String = movie.Filename
 
+        Cursor = Cursors.WaitCursor
+
+        'Download pictures
+        PublicServer.This.DownloadPublicFaces(movie)
+
         'Copy the movie as a new one
         movie.Filename = ""
         movie.Title = "Copy of " & movie.Title
@@ -216,6 +235,8 @@
 
         'Delete movie from the local cloud directory
         DemoMovie.DeleteTempFile(GlobalSettings.This.DemoMovieCloudFolder & "\" & tempFilename)
+
+        Cursor = Cursors.Default
 
         'Refresh the list
         Me.RefreshList()
@@ -306,6 +327,7 @@
             Case DemoMovie.DEMOTYPE.Quick
                 'Check if some actors are defined
                 If movie.Actors.Count = 0 Then Exit Sub
+
 
                 Dim frm As New QuickDirectorForm
                 frm.Run()

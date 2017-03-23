@@ -7,6 +7,9 @@
 
         CurrentItem = GlobalSettings.This.CurrentMovie
 
+        DemoDateTimePicker.Format = DateTimePickerFormat.Custom
+        DemoDateTimePicker.CustomFormat = "MM-dd-yyyy HH:mm:ss"
+
         TitleTextBox.Text = CurrentItem.Title
         CustomerTextBox.Text = CurrentItem.CustomerName
         DemoDateTimePicker.Value = CurrentItem.DemoDate

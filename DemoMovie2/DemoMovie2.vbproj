@@ -27,7 +27,7 @@
     <ProductName>DemoMovie2</ProductName>
     <PublisherName>MyMax</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.4.0.0</ApplicationVersion>
+    <ApplicationVersion>0.6.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -105,6 +105,9 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="edtFTPnet">
       <HintPath>..\..\FTPServer\FTPServer\edtFTPnet.dll</HintPath>
@@ -137,11 +140,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVC\Control\IDirector.vb" />
     <Compile Include="MVC\Control\ISwipeForm.vb" />
+    <Compile Include="MVC\Control\IThumbnail.vb" />
     <Compile Include="MVC\Control\Main.vb" />
     <Compile Include="MVC\Control\PanelController.vb" />
     <Compile Include="MVC\Control\PublicServer.vb" />
+    <Compile Include="MVC\Control\Reminder.vb" />
+    <Compile Include="MVC\Control\ReminderManager.vb" />
     <Compile Include="MVC\Model\Actor.vb" />
+    <Compile Include="MVC\Model\Database.vb" />
     <Compile Include="MVC\View\Controls\LIstOf\ListOfActors.Designer.vb">
       <DependentUpon>ListOfActors.vb</DependentUpon>
     </Compile>
@@ -490,6 +498,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Martynamru-Leather-Movie.ico" />
+    <None Include="Resources\backspace-48.png" />
+    <None Include="Resources\arrow-down.png" />
     <None Include="Resources\download-48.png" />
     <None Include="Resources\clouds-48.png" />
     <None Include="ChangeLog.txt" />
@@ -516,6 +526,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

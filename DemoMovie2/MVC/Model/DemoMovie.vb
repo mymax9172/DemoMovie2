@@ -12,7 +12,7 @@ Public Class DemoMovie
     End Enum
 
     Public Property Title As String
-    Public Property DemoDate As Date
+    Public Property DemoDate As DateTime
     Public Property CustomerName As String
     Public Property Type As DEMOTYPE
 
@@ -43,10 +43,13 @@ Public Class DemoMovie
 
     Public Shared Sub Save(this As DemoMovie)
 
+        Dim isNew As Boolean = False
+
         'Check filename
         If this.Filename = "" Then
             'First time saving, create a unique name
             this.Filename = GlobalSettings.This.Author & "-" & IO.Path.GetRandomFileName() & ".dm"
+            isNew = True
         End If
 
         'Serialize
@@ -54,6 +57,9 @@ Public Class DemoMovie
         Dim formatter As New BinaryFormatter
         formatter.Serialize(stream, this)
         stream.Close()
+
+        'Update database
+        If isNew Then Database.This.LocalMovies.Add(this)
 
     End Sub
 
@@ -82,6 +88,9 @@ Public Class DemoMovie
         'Deletion
         IO.File.Delete(GlobalSettings.This.DemoMovieFolder & "\" & this.Filename)
         this = Nothing
+
+        'Update database
+        Database.This.LocalMovies.Remove(this)
 
     End Sub
 

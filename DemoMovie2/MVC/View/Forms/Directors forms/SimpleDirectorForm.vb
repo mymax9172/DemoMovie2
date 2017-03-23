@@ -30,6 +30,13 @@
 
     End Sub
 
+    Private _Visible As Boolean
+    Private ReadOnly Property ISwipeForm_Visible As Boolean Implements ISwipeForm.Visible
+        Get
+            Return _Visible
+        End Get
+    End Property
+
     Public Overrides Sub Refresh() Implements ISwipeForm.Refresh
         MyBase.Refresh()
 
@@ -37,7 +44,7 @@
 
     End Sub
 
-    Public Sub Swipe(show As Boolean) Implements ISwipeForm.Swipe
+    Public Sub Swipe(show As Boolean, Optional enabled As Boolean = True) Implements ISwipeForm.Swipe
 
         Dim target As Integer
 
@@ -59,6 +66,8 @@
         Loop
 
         If show Then Me.Focus()
+        _Visible = show
+        Me.Enabled = enabled
 
     End Sub
 

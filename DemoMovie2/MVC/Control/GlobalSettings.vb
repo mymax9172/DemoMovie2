@@ -24,13 +24,17 @@
 
     Public Property UseThisScreen As Screen
 
+    Public Property SnoozeTime As Integer = 5
+    Public Property RemindBefore As Integer = 15
+
     Private Sub New()
 
-        'Initialize folders
-        Dim appFolder As String = Application.StartupPath
+        'Initialize folders - Starting from myDocuments
+        Dim appFolder As String = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) & "\DemoMovie2"
+
         _ImageFolder = appFolder & "\Images"
-        _DemoMovieFolder = appFolder & "\DemoMovies"
-        _DemoMovieCloudFolder = appFolder & "\DemoMovies\Public"
+        _DemoMovieFolder = appFolder & "\LocalMovies"
+        _DemoMovieCloudFolder = appFolder & "\PublicMovies"
 
         'Retrieve username
         _Author = Environment.UserName

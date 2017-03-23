@@ -68,7 +68,10 @@
 
     Private Property Selected As Boolean = False
 
+    Public Event Entered(sender As Object, e As EventArgs)
+
     Private Sub MouseEnters(sender As Object, e As EventArgs) Handles MyBase.MouseEnter, ImagePictureBox.MouseEnter, NameLabel.MouseEnter, RoleLabel.MouseEnter, DeletePictureBox.MouseEnter
+        RaiseEvent Entered(Me, EventArgs.Empty)
         If Not Active Then Exit Sub
         If Me.ClientRectangle.Contains(Me.PointToClient(MousePosition)) Then
             If Not Selected Then
@@ -77,6 +80,7 @@
                 Me.BackColor = Color.Orange
                 If AllowDelete Then DeletePictureBox.Visible = True
                 BorderStyle = BorderStyle.FixedSingle
+
             End If
         End If
     End Sub

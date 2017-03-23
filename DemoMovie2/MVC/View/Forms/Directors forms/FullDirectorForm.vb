@@ -1,4 +1,6 @@
-﻿Public Class FullDirectorForm
+﻿Imports it.mymax.demomovie2
+
+Public Class FullDirectorForm
     Implements ISwipeForm
 
     Private Property movie As DemoMovie = GlobalSettings.This.CurrentMovie
@@ -16,6 +18,13 @@
                 TakesList.Takes = value.Takes
             End If
         End Set
+    End Property
+
+    Private _Visible As Boolean
+    Private ReadOnly Property ISwipeForm_Visible As Boolean Implements ISwipeForm.Visible
+        Get
+            Return _Visible
+        End Get
     End Property
 
     Public Sub Run()
@@ -72,7 +81,7 @@
 
     End Sub
 
-    Public Sub Swipe(show As Boolean) Implements ISwipeForm.Swipe
+    Public Sub Swipe(show As Boolean, Optional enabled As Boolean = True) Implements ISwipeForm.Swipe
 
         Dim target As Integer
 
@@ -94,6 +103,8 @@
         Loop
 
         If show Then Me.Focus()
+        _Visible = show
+        Me.Enabled = enabled
 
     End Sub
 

@@ -22,39 +22,11 @@ Partial Class SimpleStageForm
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.LinePictureBox = New System.Windows.Forms.PictureBox()
         Me.ActorUserControl1 = New it.mymax.demomovie2.ActorUserControl()
         Me.TakeUserControl1 = New it.mymax.demomovie2.TakeUserControl()
-        Me.LinePictureBox = New System.Windows.Forms.PictureBox()
         CType(Me.LinePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ActorUserControl1
-        '
-        Me.ActorUserControl1.Active = True
-        Me.ActorUserControl1.Actor = Nothing
-        Me.ActorUserControl1.AllowDelete = False
-        Me.ActorUserControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ActorUserControl1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ActorUserControl1.Location = New System.Drawing.Point(10, 166)
-        Me.ActorUserControl1.Margin = New System.Windows.Forms.Padding(3, 16, 3, 16)
-        Me.ActorUserControl1.Name = "ActorUserControl1"
-        Me.ActorUserControl1.Size = New System.Drawing.Size(145, 229)
-        Me.ActorUserControl1.TabIndex = 1
-        '
-        'TakeUserControl1
-        '
-        Me.TakeUserControl1.AllowDelete = False
-        Me.TakeUserControl1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TakeUserControl1.LeftTakeColor = System.Drawing.Color.Empty
-        Me.TakeUserControl1.Location = New System.Drawing.Point(4, 13)
-        Me.TakeUserControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.TakeUserControl1.Name = "TakeUserControl1"
-        Me.TakeUserControl1.RightTakeColor = System.Drawing.Color.Empty
-        Me.TakeUserControl1.Size = New System.Drawing.Size(155, 133)
-        Me.TakeUserControl1.TabIndex = 0
-        Me.TakeUserControl1.Take = Nothing
         '
         'LinePictureBox
         '
@@ -65,6 +37,34 @@ Partial Class SimpleStageForm
         Me.LinePictureBox.Size = New System.Drawing.Size(167, 8)
         Me.LinePictureBox.TabIndex = 9
         Me.LinePictureBox.TabStop = False
+        '
+        'ActorUserControl1
+        '
+        Me.ActorUserControl1.Active = True
+        Me.ActorUserControl1.Actor = Nothing
+        Me.ActorUserControl1.AllowDelete = False
+        Me.ActorUserControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ActorUserControl1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ActorUserControl1.Location = New System.Drawing.Point(12, 190)
+        Me.ActorUserControl1.Margin = New System.Windows.Forms.Padding(3, 35, 3, 35)
+        Me.ActorUserControl1.Name = "ActorUserControl1"
+        Me.ActorUserControl1.Size = New System.Drawing.Size(143, 208)
+        Me.ActorUserControl1.TabIndex = 1
+        '
+        'TakeUserControl1
+        '
+        Me.TakeUserControl1.AllowDelete = False
+        Me.TakeUserControl1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TakeUserControl1.LeftTakeColor = System.Drawing.Color.Empty
+        Me.TakeUserControl1.Location = New System.Drawing.Point(0, 15)
+        Me.TakeUserControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.TakeUserControl1.Name = "TakeUserControl1"
+        Me.TakeUserControl1.RightTakeColor = System.Drawing.Color.Empty
+        Me.TakeUserControl1.Size = New System.Drawing.Size(167, 163)
+        Me.TakeUserControl1.TabIndex = 0
+        Me.TakeUserControl1.Take = Nothing
         '
         'SimpleStageForm
         '

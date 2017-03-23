@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form esegue l'override del metodo Dispose per pulire l'elenco dei componenti.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,10 @@ Partial Class MainForm
     'NOTA: la procedura che segue è richiesta da Progettazione Windows Form
     'Può essere modificata in Progettazione Windows Form.  
     'Non modificarla mediante l'editor del codice.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.ClientPanel = New System.Windows.Forms.Panel()
         Me.TopPanel = New System.Windows.Forms.Panel()
         Me.AuthorLabel = New System.Windows.Forms.Label()
@@ -30,9 +32,16 @@ Partial Class MainForm
         Me.LinePictureBox = New System.Windows.Forms.PictureBox()
         Me.ClosePictureBox = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.DemoMovieNotifyIcon = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.NotifyMenuItem = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.OpenMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ExitMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TopPanel.SuspendLayout()
         CType(Me.LinePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClosePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.NotifyMenuItem.SuspendLayout()
         Me.SuspendLayout()
         '
         'ClientPanel
@@ -68,11 +77,12 @@ Partial Class MainForm
         Me.AuthorLabel.BackColor = System.Drawing.Color.Transparent
         Me.AuthorLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AuthorLabel.ForeColor = System.Drawing.Color.Black
-        Me.AuthorLabel.Location = New System.Drawing.Point(741, 60)
+        Me.AuthorLabel.Location = New System.Drawing.Point(737, 59)
         Me.AuthorLabel.Name = "AuthorLabel"
-        Me.AuthorLabel.Size = New System.Drawing.Size(49, 17)
+        Me.AuthorLabel.Size = New System.Drawing.Size(46, 17)
         Me.AuthorLabel.TabIndex = 10
-        Me.AuthorLabel.Text = "Version"
+        Me.AuthorLabel.Text = "Author"
+        Me.AuthorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'VersionLabel
         '
@@ -133,6 +143,42 @@ Partial Class MainForm
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Demo Movie"
         '
+        'DemoMovieNotifyIcon
+        '
+        Me.DemoMovieNotifyIcon.ContextMenuStrip = Me.NotifyMenuItem
+        Me.DemoMovieNotifyIcon.Icon = CType(resources.GetObject("DemoMovieNotifyIcon.Icon"), System.Drawing.Icon)
+        Me.DemoMovieNotifyIcon.Text = "DemoMovie 2"
+        Me.DemoMovieNotifyIcon.Visible = True
+        '
+        'NotifyMenuItem
+        '
+        Me.NotifyMenuItem.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenMenuItem, Me.ToolStripSeparator1, Me.ToolStripSeparator2, Me.ExitMenuItem})
+        Me.NotifyMenuItem.Name = "NotifyMenuItem"
+        Me.NotifyMenuItem.Size = New System.Drawing.Size(104, 60)
+        '
+        'OpenMenuItem
+        '
+        Me.OpenMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.OpenMenuItem.Name = "OpenMenuItem"
+        Me.OpenMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.OpenMenuItem.Text = "Open"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(100, 6)
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(100, 6)
+        '
+        'ExitMenuItem
+        '
+        Me.ExitMenuItem.Name = "ExitMenuItem"
+        Me.ExitMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitMenuItem.Text = "&Exit"
+        '
         'MainForm
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -148,6 +194,7 @@ Partial Class MainForm
         Me.TopPanel.PerformLayout()
         CType(Me.LinePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClosePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.NotifyMenuItem.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -159,4 +206,10 @@ Partial Class MainForm
     Friend WithEvents SubTitleLabel As Label
     Friend WithEvents VersionLabel As Label
     Friend WithEvents AuthorLabel As Label
+    Friend WithEvents DemoMovieNotifyIcon As NotifyIcon
+    Friend WithEvents NotifyMenuItem As ContextMenuStrip
+    Friend WithEvents OpenMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ExitMenuItem As ToolStripMenuItem
 End Class

@@ -1,4 +1,15 @@
-﻿Version 0.4
+﻿Version 0.6
+- Added reminders for planned demo movies
+- Added notify icon on task bar. Direct play from menu, app stays running in background
+- Bug fixed: Selecting an actor into a single take was impossible for more than 4 actors- Added scrollbars
+
+Version 0.5
+- Changed folder structure. Root folder is now MyDocuments\DemoMovie2
+
+Version 0.4.1
+- Bug fixed: Pictures were not copied once the user downloaded a public demo movie. Solved
+
+Version 0.4
 - Added support for shared demo movie, upload and download public movies
 - Added support for extend dekstop (director and stage form are showed on extended desktop only)
 - Changed customer name on demo, always visibile (non only on selected movie)

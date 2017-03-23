@@ -1,7 +1,24 @@
-﻿Public Class QuickDirectorForm
+﻿Imports it.mymax.demomovie2
 
-    Private Property movie As DemoMovie = GlobalSettings.This.CurrentMovie
+Public Class QuickDirectorForm
+    Implements ISwipeForm
+
+    Private movie As DemoMovie = GlobalSettings.This.CurrentMovie
     Private thisScreen As Screen = GlobalSettings.This.UseThisScreen
+
+    Private _Visible As Boolean
+    Private ReadOnly Property ISwipeForm_Visible As Boolean Implements ISwipeForm.Visible
+        Get
+            Return _Visible
+        End Get
+    End Property
+
+    Public Overrides Sub Refresh() Implements ISwipeForm.Refresh
+        MyBase.Refresh()
+
+        ActorsListUserControl.Refresh()
+
+    End Sub
 
     Public Sub Run()
 
@@ -24,7 +41,7 @@
 
     End Sub
 
-    Public Sub Swipe(show As Boolean)
+    Public Sub Swipe(show As Boolean, Optional enabled As Boolean = True) Implements ISwipeForm.Swipe
 
         Dim target As Integer
 
@@ -46,6 +63,7 @@
         Loop
 
         If show Then Me.Focus()
+        Me.Enabled = enabled
 
     End Sub
 
@@ -56,6 +74,7 @@
         GlobalSettings.This.MainForm.Show()
 
     End Sub
+
 
     Private Sub ShowActor(sender As Object, e As EventArgs)
 
