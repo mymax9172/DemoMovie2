@@ -29,6 +29,8 @@
             Case DemoMovie.DEMOTYPE.Full : FullPanel.Visible = True
         End Select
 
+        RemindMeToggle.Checked = CurrentItem.RemindMe
+
     End Sub
 
     Private Sub TitleTextBox_TextChanged(sender As Object, e As EventArgs) Handles TitleTextBox.TextChanged
@@ -50,5 +52,9 @@
 
     End Sub
 
+    Private Sub RemindMeToggle_CheckedChanged(sender As Object, e As EventArgs) Handles RemindMeToggle.CheckedChanged
 
+        CurrentItem.RemindMe = RemindMeToggle.Checked
+
+    End Sub
 End Class

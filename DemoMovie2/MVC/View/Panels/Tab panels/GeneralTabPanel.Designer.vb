@@ -52,6 +52,7 @@ Partial Class GeneralTabPanel
         Me.Label15 = New System.Windows.Forms.Label()
         Me.PublishedLabel = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
+        Me.RemindMeToggle = New it.mymax.demomovie2.DemoToggle()
         CType(Me.FullPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SimplePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QuickPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,7 +88,7 @@ Partial Class GeneralTabPanel
         'FullPictureBox
         '
         Me.FullPictureBox.Image = Global.it.mymax.demomovie2.My.Resources.Resources.film_reel_48
-        Me.FullPictureBox.Location = New System.Drawing.Point(158, 191)
+        Me.FullPictureBox.Location = New System.Drawing.Point(158, 214)
         Me.FullPictureBox.Name = "FullPictureBox"
         Me.FullPictureBox.Size = New System.Drawing.Size(48, 48)
         Me.FullPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -97,7 +98,7 @@ Partial Class GeneralTabPanel
         'SimplePictureBox
         '
         Me.SimplePictureBox.Image = Global.it.mymax.demomovie2.My.Resources.Resources.meditation_guru_48
-        Me.SimplePictureBox.Location = New System.Drawing.Point(158, 191)
+        Me.SimplePictureBox.Location = New System.Drawing.Point(158, 214)
         Me.SimplePictureBox.Name = "SimplePictureBox"
         Me.SimplePictureBox.Size = New System.Drawing.Size(48, 48)
         Me.SimplePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -107,7 +108,7 @@ Partial Class GeneralTabPanel
         'QuickPictureBox
         '
         Me.QuickPictureBox.Image = Global.it.mymax.demomovie2.My.Resources.Resources.bird_48
-        Me.QuickPictureBox.Location = New System.Drawing.Point(158, 191)
+        Me.QuickPictureBox.Location = New System.Drawing.Point(158, 214)
         Me.QuickPictureBox.Name = "QuickPictureBox"
         Me.QuickPictureBox.Size = New System.Drawing.Size(48, 48)
         Me.QuickPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
@@ -118,7 +119,7 @@ Partial Class GeneralTabPanel
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(30, 201)
+        Me.Label1.Location = New System.Drawing.Point(30, 224)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(72, 17)
         Me.Label1.TabIndex = 25
@@ -128,7 +129,7 @@ Partial Class GeneralTabPanel
         '
         Me.FullLabel.AutoSize = True
         Me.FullLabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FullLabel.Location = New System.Drawing.Point(219, 204)
+        Me.FullLabel.Location = New System.Drawing.Point(219, 227)
         Me.FullLabel.Name = "FullLabel"
         Me.FullLabel.Size = New System.Drawing.Size(81, 20)
         Me.FullLabel.TabIndex = 28
@@ -138,7 +139,7 @@ Partial Class GeneralTabPanel
         '
         Me.SimpleLabel.AutoSize = True
         Me.SimpleLabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SimpleLabel.Location = New System.Drawing.Point(219, 204)
+        Me.SimpleLabel.Location = New System.Drawing.Point(219, 227)
         Me.SimpleLabel.Name = "SimpleLabel"
         Me.SimpleLabel.Size = New System.Drawing.Size(103, 20)
         Me.SimpleLabel.TabIndex = 27
@@ -148,7 +149,7 @@ Partial Class GeneralTabPanel
         '
         Me.QuickLabel.AutoSize = True
         Me.QuickLabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuickLabel.Location = New System.Drawing.Point(219, 204)
+        Me.QuickLabel.Location = New System.Drawing.Point(219, 227)
         Me.QuickLabel.Name = "QuickLabel"
         Me.QuickLabel.Size = New System.Drawing.Size(95, 20)
         Me.QuickLabel.TabIndex = 26
@@ -348,7 +349,7 @@ Partial Class GeneralTabPanel
         '
         Me.PublishedLabel.AutoSize = True
         Me.PublishedLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PublishedLabel.Location = New System.Drawing.Point(28, 267)
+        Me.PublishedLabel.Location = New System.Drawing.Point(28, 292)
         Me.PublishedLabel.Name = "PublishedLabel"
         Me.PublishedLabel.Size = New System.Drawing.Size(266, 17)
         Me.PublishedLabel.TabIndex = 34
@@ -358,15 +359,25 @@ Partial Class GeneralTabPanel
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(30, 153)
+        Me.Label17.Location = New System.Drawing.Point(220, 153)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(371, 17)
+        Me.Label17.Size = New System.Drawing.Size(166, 17)
         Me.Label17.TabIndex = 34
-        Me.Label17.Text = "A reminder will be notified 15 minutes before the panned time"
+        Me.Label17.Text = "Remind me 15 mins before"
+        '
+        'RemindMeToggle
+        '
+        Me.RemindMeToggle.Location = New System.Drawing.Point(158, 153)
+        Me.RemindMeToggle.Name = "RemindMeToggle"
+        Me.RemindMeToggle.OffFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RemindMeToggle.OnFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RemindMeToggle.Size = New System.Drawing.Size(50, 19)
+        Me.RemindMeToggle.TabIndex = 35
         '
         'GeneralTabPanel
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.Controls.Add(Me.RemindMeToggle)
         Me.Controls.Add(Me.Label17)
         Me.Controls.Add(Me.PublishedLabel)
         Me.Controls.Add(Me.FullPanel)
@@ -429,4 +440,5 @@ Partial Class GeneralTabPanel
     Friend WithEvents Label15 As Label
     Friend WithEvents PublishedLabel As Label
     Friend WithEvents Label17 As Label
+    Friend WithEvents RemindMeToggle As DemoToggle
 End Class

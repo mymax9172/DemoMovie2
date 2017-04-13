@@ -15,9 +15,11 @@ Public Class DemoMovie
     Public Property DemoDate As DateTime
     Public Property CustomerName As String
     Public Property Type As DEMOTYPE
+    Public Property RemindMe As Boolean
 
     Public Property IsCloud As Boolean
     Public Property IsPublished As Boolean
+    Public Property IsChanged As Boolean
 
     Public Author As String
 
@@ -38,96 +40,6 @@ Public Class DemoMovie
     Public Overrides Function ToString() As String
 
         Return Title & " (" & DemoDate.ToShortDateString & ")"
-
-    End Function
-
-    Public Shared Sub Save(this As DemoMovie)
-
-        Dim isNew As Boolean = False
-
-        'Check filename
-        If this.Filename = "" Then
-            'First time saving, create a unique name
-            this.Filename = GlobalSettings.This.Author & "-" & IO.Path.GetRandomFileName() & ".dm"
-            isNew = True
-        End If
-
-        'Serialize
-        Dim stream As New IO.FileStream(GlobalSettings.This.DemoMovieFolder & "\" & this.Filename, IO.FileMode.Create)
-        Dim formatter As New BinaryFormatter
-        formatter.Serialize(stream, this)
-        stream.Close()
-
-        'Update database
-        If isNew Then Database.This.LocalMovies.Add(this)
-
-    End Sub
-
-    Public Shared Function Load(filename As String) As DemoMovie
-
-        'Check filename
-        If Not IO.File.Exists(filename) Then
-            Return Nothing
-        End If
-
-        'DeSerialize
-        Dim stream As New IO.FileStream(filename, IO.FileMode.Open)
-        Dim formatter As New BinaryFormatter
-        Dim this As Object = formatter.Deserialize(stream)
-        stream.Close()
-
-        If this IsNot Nothing Then Return DirectCast(this, DemoMovie) Else Return Nothing
-
-    End Function
-
-    Public Shared Sub Delete(ByRef this As DemoMovie)
-
-        'Check filename
-        If Not IO.File.Exists(GlobalSettings.This.DemoMovieFolder & "\" & this.Filename) Then Exit Sub
-
-        'Deletion
-        IO.File.Delete(GlobalSettings.This.DemoMovieFolder & "\" & this.Filename)
-        this = Nothing
-
-        'Update database
-        Database.This.LocalMovies.Remove(this)
-
-    End Sub
-
-    Public Shared Sub DeleteTempFile(filename As String)
-
-        'Check filename
-        If Not IO.File.Exists(filename) Then Exit Sub
-
-        'Deletion
-        IO.File.Delete(filename)
-
-    End Sub
-
-    ''' <summary>
-    ''' Load all demomovies
-    ''' </summary>
-    ''' <returns>List of all demo movies stored</returns>
-    Public Shared Function GetAll(Optional local As Boolean = True) As List(Of DemoMovie)
-
-        Dim path As String
-        If local Then
-            path = GlobalSettings.This.DemoMovieFolder
-        Else
-            path = GlobalSettings.This.DemoMovieCloudFolder
-        End If
-
-        Dim filename As String = Dir(path & "\*.dm", FileAttribute.Normal)
-        Dim items As New List(Of DemoMovie)
-
-        Do While filename <> ""
-            Dim item As DemoMovie = DemoMovie.Load(path & "\" & filename)
-            If Not local Then item.IsCloud = True
-            If item IsNot Nothing Then items.Add(item)
-            filename = Dir()
-        Loop
-
-        Return items
 
     End Function
 

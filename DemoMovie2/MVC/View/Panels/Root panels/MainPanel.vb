@@ -1,13 +1,16 @@
 ﻿Public Class MainPanel
 
-    Private Property DownloadedCloud As Boolean = False
-
     Protected Friend Overrides Sub OnShowed(e As EventArgs)
         MyBase.OnShowed(e)
 
         RefreshList()
         AddHandler ReminderManager.This.Alert, AddressOf Alert
 
+    End Sub
+
+    Public Overrides Sub Refresh()
+        MyBase.Refresh()
+        RefreshList()
     End Sub
 
     'Load all items
@@ -17,7 +20,6 @@
         MoviesFlowLayoutPanel.Controls.Clear()
 
         'Load all demo movies
-        'Dim items As List(Of DemoMovie) = DemoMovie.GetAll()
         Dim items As List(Of DemoMovie) = Database.This.LocalMovies
 
         For Each item As DemoMovie In items
@@ -43,38 +45,32 @@
         If My.Settings.UseCloud Then
 
             'Show downloaded movies
-            If DownloadedCloud Then
+            items = Database.This.CloudMovies
 
-                'Load all public demo movies
-                'items = DemoMovie.GetAll(False)
-                items = Database.This.CloudMovies
+            For Each item As DemoMovie In items
+                Dim uc As New MovieUserControl
+                uc.CurrentItem = item
+                uc.Visible = True
+                uc.Size = New Size(150, 150)
 
-                For Each item As DemoMovie In items
-                    Dim uc As New MovieUserControl
-                    uc.CurrentItem = item
-                    uc.Visible = True
-                    uc.Size = New Size(150, 150)
+                AddHandler uc.Download, AddressOf DownloadMovie
+                AddHandler uc.Delete, AddressOf DeleteCloudMovie_Begin
 
-                    AddHandler uc.Download, AddressOf DownloadMovie
-                    AddHandler uc.Delete, AddressOf DeleteCloudMovie_Begin
+                MoviesFlowLayoutPanel.Controls.Add(uc)
+            Next
 
-                    MoviesFlowLayoutPanel.Controls.Add(uc)
-                Next
 
-            Else
+            'Insert the Cloud button (to download/refresh)
+            Dim cloudItem As New CloudUserControl
+            cloudItem.Visible = True
+            cloudItem.BackColor = Color.WhiteSmoke
+            cloudItem.BorderStyle = System.Windows.Forms.BorderStyle.None
+            cloudItem.Size = New Size(150, 150)
+            AddHandler cloudItem.Click, AddressOf DownloadCloudMovies
+            MoviesFlowLayoutPanel.Controls.Add(cloudItem)
 
-                Dim cloudItem As New CloudUserControl
-                cloudItem.Visible = True
-                cloudItem.BackColor = Color.WhiteSmoke
-                cloudItem.BorderStyle = System.Windows.Forms.BorderStyle.None
-                cloudItem.Size = New Size(150, 150)
-                AddHandler cloudItem.Click, AddressOf DownloadCloudMovies
-                MoviesFlowLayoutPanel.Controls.Add(cloudItem)
-
-                'Adjust size
-                MoviesFlowLayoutPanel.Controls(MoviesFlowLayoutPanel.Controls.Count - 1).Size = New Size(150, 150)
-
-            End If
+            'Adjust size
+            MoviesFlowLayoutPanel.Controls(MoviesFlowLayoutPanel.Controls.Count - 1).Size = New Size(150, 150)
 
         End If
 
@@ -154,7 +150,7 @@
 
         If pnl.Result = MsgBoxResult.Yes Then
             Dim movie As DemoMovie = DirectCast(pnl.Tag, DemoMovie)
-            DemoMovie.Delete(movie)
+            Database.This.LocalMovies.Remove(movie)
 
             RefreshList()
         End If
@@ -208,8 +204,6 @@
         End If
 
         Cursor = Cursors.Default
-        DownloadedCloud = True
-
         Me.RefreshList()
 
     End Sub
@@ -222,8 +216,12 @@
 
         Cursor = Cursors.WaitCursor
 
-        'Download pictures
+        'Download pictures of this movie
         PublicServer.This.DownloadPublicFaces(movie)
+
+        'Remove the movie from cloud folder and repository
+        PublicServer.DeleteTempFile(GlobalSettings.This.DemoMovieCloudFolder & "\" & tempFilename)
+        Database.This.CloudMovies.Remove(movie)
 
         'Copy the movie as a new one
         movie.Filename = ""
@@ -231,10 +229,7 @@
         movie.Author = GlobalSettings.This.Author
         movie.IsCloud = False
         movie.IsPublished = False
-        DemoMovie.Save(movie)
-
-        'Delete movie from the local cloud directory
-        DemoMovie.DeleteTempFile(GlobalSettings.This.DemoMovieCloudFolder & "\" & tempFilename)
+        Database.This.LocalMovies.Add(movie)
 
         Cursor = Cursors.Default
 

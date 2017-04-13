@@ -154,29 +154,29 @@ Partial Class MainForm
         '
         Me.NotifyMenuItem.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpenMenuItem, Me.ToolStripSeparator1, Me.ToolStripSeparator2, Me.ExitMenuItem})
         Me.NotifyMenuItem.Name = "NotifyMenuItem"
-        Me.NotifyMenuItem.Size = New System.Drawing.Size(104, 60)
+        Me.NotifyMenuItem.Size = New System.Drawing.Size(153, 82)
         '
         'OpenMenuItem
         '
         Me.OpenMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.OpenMenuItem.Name = "OpenMenuItem"
-        Me.OpenMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.OpenMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OpenMenuItem.Text = "Open"
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(100, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(100, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(149, 6)
         '
         'ExitMenuItem
         '
         Me.ExitMenuItem.Name = "ExitMenuItem"
-        Me.ExitMenuItem.Size = New System.Drawing.Size(103, 22)
+        Me.ExitMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.ExitMenuItem.Text = "&Exit"
         '
         'MainForm

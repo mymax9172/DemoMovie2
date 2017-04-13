@@ -111,12 +111,7 @@
         If CurrentItem.DemoDate = Nothing Then Return False
         If CurrentItem.CustomerName = "" Then Return False
         If CurrentItem.Author = "" Then CurrentItem.Author = GlobalSettings.This.Author
-
-        'Update object (locally)
-        DemoMovie.Save(CurrentItem)
-
-        'Check if must updated on the cloud
-        If CurrentItem.IsPublished Then PublicServer.This.UploadMovie(CurrentItem)
+        CurrentItem.IsChanged = True
 
         Cursor = Cursors.Default
         PanelController.This.Close()
@@ -129,7 +124,7 @@
 
         If Not Save() Then
             Dim pnl As New MsgBoxPanel
-            pnl.Run("Save failed", "Information you provided is not complete, please review", MsgBoxStyle.Information)
+            pnl.Run("Save failed", "Some mandatory fields are missing, please review", MsgBoxStyle.Information)
         End If
 
     End Sub

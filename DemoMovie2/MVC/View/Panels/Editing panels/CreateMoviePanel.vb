@@ -21,12 +21,14 @@
                     .Scenes.Add(New Scene With {.Title = "DUMMY"})
                 Case 3 : .Type = DemoMovie.DEMOTYPE.Full
             End Select
+            .IsChanged = True
         End With
 
         'Save demo movie
-        DemoMovie.Save(movie)
+        Database.This.LocalMovies.Add(movie)
+
         Me.DataSource = movie
-        OnMovieChanged(EventArgs.Empty)
+        RaiseEvent MovieCreated(Me, e)
 
         'Close the panel
         PanelController.This.Close()
@@ -36,12 +38,6 @@
     Private Sub AbortButton_Click(sender As Object, e As EventArgs) Handles AbortButton.Click
 
         PanelController.This.Close()
-
-    End Sub
-
-    Private Sub OnMovieChanged(e As EventArgs)
-
-        RaiseEvent MovieCreated(Me, e)
 
     End Sub
 

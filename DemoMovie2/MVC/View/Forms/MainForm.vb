@@ -132,8 +132,14 @@
     End Sub
 
     Private Sub ClosePictureBox_Click(sender As Object, e As EventArgs) Handles ClosePictureBox.Click
+
+        'Save repository
+        Database.This.SaveRepository()
+
+        'Hide the window
         Me.Hide()
 
+        'Show the tip
         Me.DemoMovieNotifyIcon.ShowBalloonTip(2000, "DemoMovie 2", "DemoMovie is still running", ToolTipIcon.Info)
 
     End Sub
@@ -156,7 +162,6 @@
         'Start with the splash panel
         Dim pnl As New SplashPanel
         PanelController.This.Show(pnl)
-
 
     End Sub
 
@@ -182,30 +187,10 @@
         OpenApplication(sender, e)
     End Sub
 
-    'Private Snoozer As Integer = 0
-    'Private SnoozedMovie As New List(Of String)
+    Private Sub NotifyMenuItem_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles NotifyMenuItem.Opening
 
-    'Private Sub ReminderTimer_Tick(sender As Object, e As EventArgs) Handles ReminderTimer.Tick
+    End Sub
 
-    '    Dim movies As List(Of DemoMovie) = DemoMovie.GetAll
-    '    For Each movie As DemoMovie In movies
-    '        If Not SnoozedMovie.Contains(movie.Filename) Then
-
-    '            Dim remDate As DateTime = movie.DemoDate.Subtract(New TimeSpan(0, 15, 0))
-    '            remDate = remDate.Subtract(New TimeSpan(0, 5 * Snoozer, 0))
-
-    '            If Now > remDate Then
-    '                DemoMovieNotifyIcon.ShowBalloonTip(3000, "DemoMovie is planned", "This is to remind you the demomovie titled " & movie.Title & " is supposed to be in minutes", ToolTipIcon.Warning)
-    '                Snoozer += 1
-    '                If Snoozer >= 3 Or remDate > movie.DemoDate Then
-    '                    SnoozedMovie.Add(movie.Filename)
-    '                    Snoozer = 0
-    '                End If
-    '            End If
-    '        End If
-    '    Next
-
-    'End Sub
 #End Region
 
 

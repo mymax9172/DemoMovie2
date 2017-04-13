@@ -1,4 +1,7 @@
-﻿Version 0.6
+﻿Version 0.6.1
+- Bug fixed: Delete actually remove the file from file system, not on the app while running
+
+Version 0.6
 - Added reminders for planned demo movies
 - Added notify icon on task bar. Direct play from menu, app stays running in background
 - Bug fixed: Selecting an actor into a single take was impossible for more than 4 actors- Added scrollbars

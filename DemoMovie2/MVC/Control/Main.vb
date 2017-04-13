@@ -17,11 +17,10 @@ Public Class Main
         'Run application
         AddHandler Application.ApplicationExit, AddressOf Quit
 
-        'check args
+        'Show application
         Dim frm As New MainForm
         GlobalSettings.This.MainForm = frm
         PanelController.This.Container = frm.ClientPanel
-
         frm.Run()
 
         'Run windows message loop
@@ -38,7 +37,7 @@ Public Class Main
         GlobalSettings.Init()
 
         'Initialize database
-        Database.This.LoadAll()
+        Database.This.LoadRepository()
 
     End Sub
 
@@ -47,8 +46,8 @@ Public Class Main
     ''' </summary>
     Shared Sub Quit(sender As Object, e As EventArgs)
 
-        'Add here any final operation
-        '...
+        'Store the repository
+        Database.This.SaveRepository()
 
     End Sub
 

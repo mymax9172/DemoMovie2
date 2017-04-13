@@ -14,7 +14,7 @@
         MoviesFlowLayoutPanel.Controls.Clear()
 
         'Load all demo movies
-        Dim items As List(Of DemoMovie) = DemoMovie.GetAll()
+        Dim items As List(Of DemoMovie) = Database.This.LocalMovies
         Dim odd As Boolean = True
 
         For Each item As DemoMovie In items
