@@ -24,12 +24,12 @@
         End Select
         genTP.IsActive = True
 
-        If CurrentItem.IsPublished Then
+        If CurrentItem.IsPublished AndAlso My.Settings.UseCloud Then
             SaveButton.Text = "Save && Publish"
             PublishButton.Visible = False
         Else
             SaveButton.Text = "Save"
-            PublishButton.Visible = True
+            PublishButton.Visible = My.Settings.UseCloud
         End If
 
         Title = "Edit a demo movie: " & CurrentItem.Title

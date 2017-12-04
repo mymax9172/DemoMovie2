@@ -46,9 +46,6 @@ Public Class Main
     ''' </summary>
     Shared Sub Quit(sender As Object, e As EventArgs)
 
-        'Store the repository
-        Database.This.SaveRepository()
-
     End Sub
 
 

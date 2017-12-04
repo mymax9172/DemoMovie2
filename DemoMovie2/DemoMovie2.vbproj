@@ -27,7 +27,7 @@
     <ProductName>DemoMovie2</ProductName>
     <PublisherName>MyMax</PublisherName>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.1.0.0</ApplicationVersion>
+    <ApplicationVersion>1.0.2.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -272,6 +272,12 @@
     <Compile Include="MVC\View\Panels\Auxiliary panels\SelectMoviePanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="MVC\View\Panels\Auxiliary panels\SettingsPanel.Designer.vb">
+      <DependentUpon>SettingsPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MVC\View\Panels\Auxiliary panels\SettingsPanel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="MVC\View\Panels\Editing panels\EditScenePanel.Designer.vb">
       <DependentUpon>EditScenePanel.vb</DependentUpon>
     </Compile>
@@ -423,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MVC\View\Panels\Auxiliary panels\SelectMoviePanel.resx">
       <DependentUpon>SelectMoviePanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MVC\View\Panels\Auxiliary panels\SettingsPanel.resx">
+      <DependentUpon>SettingsPanel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MVC\View\Panels\Editing panels\EditScenePanel.resx">
       <DependentUpon>EditScenePanel.vb</DependentUpon>

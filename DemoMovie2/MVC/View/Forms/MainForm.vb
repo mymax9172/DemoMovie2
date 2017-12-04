@@ -6,8 +6,12 @@
 
     Public Sub Run()
 
-        'Popup notify icon
-        RefreshMenuItems()
+        If My.Settings.UseSystemTray Then
+
+            'Popup notify icon
+            RefreshMenuItems()
+
+        End If
 
     End Sub
 
@@ -51,7 +55,6 @@
 
     Private Sub ExitApplication(sender As Object, e As EventArgs)
         Me.Close()
-        Application.Exit()
     End Sub
 
     Private Sub OpenApplication(sender As Object, e As EventArgs)
@@ -136,15 +139,23 @@
         'Save repository
         Database.This.SaveRepository()
 
-        'Hide the window
-        Me.Hide()
+        'Check if system tray must be used
+        If My.Settings.UseSystemTray Then
+            'Hide the window
+            Me.Hide()
 
-        'Show the tip
-        Me.DemoMovieNotifyIcon.ShowBalloonTip(2000, "DemoMovie 2", "DemoMovie is still running", ToolTipIcon.Info)
+            'Show the tip
+            Me.DemoMovieNotifyIcon.ShowBalloonTip(2000, "DemoMovie 2", "DemoMovie is still running", ToolTipIcon.Info)
+        Else
+            Me.Close()
+        End If
 
     End Sub
 
     Private Sub MainForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'System tray
+        Me.DemoMovieNotifyIcon.Visible = My.Settings.UseSystemTray
 
         'Register to the events
         AddHandler PanelController.This.PanelChanged, AddressOf PanelChanged
@@ -162,6 +173,7 @@
         'Start with the splash panel
         Dim pnl As New SplashPanel
         PanelController.This.Show(pnl)
+
 
     End Sub
 
@@ -189,6 +201,12 @@
 
     Private Sub NotifyMenuItem_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles NotifyMenuItem.Opening
 
+    End Sub
+
+    Private Sub SettingLabel_Click(sender As Object, e As EventArgs) Handles SettingLabel.Click
+        'Show the settings panel
+        Dim pnl As New SettingsPanel
+        pnl.Run()
     End Sub
 
 #End Region

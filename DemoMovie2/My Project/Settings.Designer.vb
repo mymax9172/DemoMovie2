@@ -92,13 +92,49 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property UseCloud() As Boolean
             Get
                 Return CType(Me("UseCloud"),Boolean)
             End Get
             Set
                 Me("UseCloud") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property AutoDetect() As Boolean
+            Get
+                Return CType(Me("AutoDetect"),Boolean)
+            End Get
+            Set
+                Me("AutoDetect") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property AskConfirmation() As Boolean
+            Get
+                Return CType(Me("AskConfirmation"),Boolean)
+            End Get
+            Set
+                Me("AskConfirmation") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property UseSystemTray() As Boolean
+            Get
+                Return CType(Me("UseSystemTray"),Boolean)
+            End Get
+            Set
+                Me("UseSystemTray") = value
             End Set
         End Property
     End Class

@@ -2,28 +2,28 @@
 
 #Region "Microsft KB953934"
 
-    Public Delegate Sub SizeChangedDelegate(ByVal e As EventArgs)
+    'Public Delegate Sub SizeChangedDelegate(ByVal e As EventArgs)
 
-    Private Sub SizeChangedDelegateHandler(ByVal e As EventArgs)
+    'Private Sub SizeChangedDelegateHandler(ByVal e As EventArgs)
 
-        MyBase.OnSizeChanged(e)
+    '    MyBase.OnSizeChanged(e)
 
-    End Sub
+    'End Sub
 
-    Protected Overrides Sub OnSizeChanged(ByVal e As EventArgs)
+    'Protected Overrides Sub OnSizeChanged(ByVal e As EventArgs)
 
-        If Me.Handle.ToInt32 > 0 Then
+    '    If Me.Handle.ToInt32 > 0 Then
 
-            Dim obj(0) As Object
+    '        Dim obj(0) As Object
 
-            obj(0) = e
+    '        obj(0) = e
 
-            Dim scd As New SizeChangedDelegate(AddressOf SizeChangedDelegateHandler)
-            Me.BeginInvoke(scd, obj)
+    '        Dim scd As New SizeChangedDelegate(AddressOf SizeChangedDelegateHandler)
+    '        Me.BeginInvoke(scd, obj)
 
-        End If
+    '    End If
 
-    End Sub
+    'End Sub
 
 #End Region
 

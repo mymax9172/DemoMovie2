@@ -22,22 +22,10 @@ Partial Class QuickStageForm
     'Non modificarla mediante l'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ActorUserControl1 = New it.mymax.demomovie2.ActorUserControl()
         Me.LinePictureBox = New System.Windows.Forms.PictureBox()
+        Me.ActorUserControl1 = New it.mymax.demomovie2.ActorUserControl()
         CType(Me.LinePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ActorUserControl1
-        '
-        Me.ActorUserControl1.Active = True
-        Me.ActorUserControl1.Actor = Nothing
-        Me.ActorUserControl1.AllowDelete = False
-        Me.ActorUserControl1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ActorUserControl1.Location = New System.Drawing.Point(12, 20)
-        Me.ActorUserControl1.Margin = New System.Windows.Forms.Padding(3, 9, 3, 9)
-        Me.ActorUserControl1.Name = "ActorUserControl1"
-        Me.ActorUserControl1.Size = New System.Drawing.Size(98, 157)
-        Me.ActorUserControl1.TabIndex = 0
         '
         'LinePictureBox
         '
@@ -48,6 +36,22 @@ Partial Class QuickStageForm
         Me.LinePictureBox.Size = New System.Drawing.Size(124, 8)
         Me.LinePictureBox.TabIndex = 8
         Me.LinePictureBox.TabStop = False
+        '
+        'ActorUserControl1
+        '
+        Me.ActorUserControl1.Active = True
+        Me.ActorUserControl1.Actor = Nothing
+        Me.ActorUserControl1.AllowDelete = False
+        Me.ActorUserControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ActorUserControl1.AutoSize = True
+        Me.ActorUserControl1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ActorUserControl1.Location = New System.Drawing.Point(6, 15)
+        Me.ActorUserControl1.Margin = New System.Windows.Forms.Padding(3, 35, 3, 35)
+        Me.ActorUserControl1.Name = "ActorUserControl1"
+        Me.ActorUserControl1.Size = New System.Drawing.Size(112, 169)
+        Me.ActorUserControl1.TabIndex = 0
         '
         'QuickStageForm
         '
@@ -67,6 +71,7 @@ Partial Class QuickStageForm
         Me.TransparencyKey = System.Drawing.Color.Violet
         CType(Me.LinePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

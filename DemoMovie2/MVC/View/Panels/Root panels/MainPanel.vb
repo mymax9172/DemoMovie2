@@ -284,16 +284,19 @@
         GlobalSettings.This.CurrentMovie = movie
 
         'Check if a project is available
-        If Screen.AllScreens.Count > 1 Then
+        If Screen.AllScreens.Count > 1 AndAlso My.Settings.AutoDetect Then
 
-            'Request confirmation to use it
-            Dim pnl As New MsgBoxPanel
-            Dim qst As String = "A projector has been detected." & vbCrLf & vbCrLf & "Do you want to project director/stage forms there?"
-            pnl.Run("Projector detected", qst, MsgBoxStyle.YesNo)
+            If My.Settings.AskConfirmation Then
+                'Request confirmation to use it
+                Dim pnl As New MsgBoxPanel
+                Dim qst As String = "A projector has been detected." & vbCrLf & vbCrLf & "Do you want to project director/stage forms there?"
+                pnl.Run("Projector detected", qst, MsgBoxStyle.YesNo)
 
-            AddHandler pnl.Closed, AddressOf PlayMovie_End
+                AddHandler pnl.Closed, AddressOf PlayMovie_End
+            Else
+                PlayOnThisScreen(Screen.AllScreens(1))
+            End If
         Else
-
             PlayOnThisScreen(Screen.PrimaryScreen)
         End If
 
